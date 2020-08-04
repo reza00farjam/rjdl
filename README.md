@@ -4,8 +4,7 @@
 * this package can be used in 2 ways. a *python madule*, or a *command* in your os terminal.   
 
 ## requirements
-this package is powered by two external python library, **requests** and **BeautifulSoup**.  
-make sure you have installed them before using this package.  
-you can install them using following commands in your os terminal:   
+this package is powered by two external python library, **requests** and **BeautifulSoup**. make sure you have installed them before using this package. if you don't have installed them yet, you can use following commands in your os terminal:   
+
 `pip install requests`   
 `pip install bs4`
