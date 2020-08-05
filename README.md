@@ -32,7 +32,7 @@ sample code:
 
 ------
 
-* the **video** attribute can be used to download *music videos* or *rj-tv shows*. it takes *two arguments*. first one is *url* of your video, and the second argument is *quality* of the video that is set to *hq*  by default but you can change it to *lq* or *hd*. it returns video info, direct download link if you want to download it with download manager apps, and at the end starts to download the video.  
+* the **video** attribute can be used to download *music videos* or *rj-tv shows*. it takes *two arguments*, first one is *url* of your video and the second argument is *quality* of the video that is set to *hq*  by default but you can change it to *lq* or *hd*. it returns video info, direct download link if you want to download it with download manager apps, and finally starts to download the video.  
 sample code:  
 
 ```python
@@ -54,7 +54,7 @@ sample code:
 * the **podcast** attribute is similar to music attribute, but it is for podcasts!  
 sample code:
 
-```
+```python
 >>> import rjdl
 >>> rjdl.podcast('https://www.radiojavan.com/podcasts/podcast/RJ-Interview-Donya-Shatranji-Album')
 ```
@@ -66,4 +66,46 @@ sample code:
  
  Downloading ...
  |████████████████----------------------------------|  32% |  232.25 kbps
+```
+
+------
+
+* the **playlist** attribute scrapes playlist's name along its included songs info, and return them with direct download link of each song. it takes only one argument that is url of desired playlist. this attribute, unlike previous attributes, dosen't download files.  
+sample code:
+
+```python
+>>> import rjdl
+>>> rjdl.playlist('https://www.radiojavan.com/playlists/playlist/mp3/854b87855624')
+```
+
+```
+Today's Top Hits | 30 Songs
+-----
+Artist:  Garsha Rezaei
+Song:    Darya Darya
+link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Garsha-Rezaei-Darya-Darya.mp3
+-----
+Artist:  Hamid Hiraad & Ragheb
+Song:    Jazzab
+link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Hamid-Hiraad-Ragheb-Jazzab.mp3
+-----
+Artist:  Donya
+Song:    Siah Sefid
+link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Siah-Sefid.mp3
+-----
+Artist:  Donya
+Song:    Mese Man
+link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Mese-Man.mp3
+-----
+Artist:  Poobon
+Song:    Blue Dream
+link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Poobon-Blue-Dream.mp3
+-----
+Artist:  Babak Jahanbakhsh
+Song:    Adamkosh
+link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Babak-Jahanbakhsh-Adamkosh.mp3
+-----
+...
+...
+...
 ```
