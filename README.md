@@ -2,7 +2,8 @@
 
 * with this package you will be able to save **musics**, **videos (music videos & rj-tv shows)**, **podcasts**, **playlists** and **albums** from *radiojavan website* to your personal computer.   
 * *podcasts* will be saved in **192 kbps** quality, *musics* in **256 kbps** quality, and for *videos* you can choose between **lq (480p)**, **hq (720p)** and **hd (1080p)** quality if they are available.  
-* *mp3s* will be saved in **C:\Users\<your-username>\Music**, and *videos* will be saved in **C:\Users\<your-username>\Videos**.  
+* *mp3s* will be saved in **"C:\Users\<your-username>\Music"**, and *videos* will be saved in **"C:\Users\<your-username>\Videos"**.  
+* if you live in *iran*, you need to turn on your **vpn** while using this package.
 * this package can be used in 2 ways. a *python madule*, or a *command* in your os console.   
 
 # install
@@ -13,13 +14,14 @@ use `pip install rjdl` in command line for installing package. (of course for be
 
 ### in console
 
-for downloading *musics*, *podcasts*, *playlists* & *albums*, use following pattern:   
+* for downloading *musics*, *podcasts*, *playlists* & *albums*, use following pattern:   
 `rjdl <url>`  
 
-and for downloading *music videos* & *rj-tv shows*, use same pattern with an extra optional argument for quality *(it is set to hd by default)*:  
+* and for downloading *music videos* & *rj-tv shows*, use same pattern with an extra optional argument for quality *(it is set to hd by default)*:  
 `rjdl <url> <quality>`  
 
 example in windows's console *(cmd)*:  
+
 ![exmp](http://www.mediafire.com/convkey/e8ce/hzvygnnurpbn9oezg.jpg)
 
 
