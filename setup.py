@@ -1,8 +1,14 @@
 import rjdl
+import os
 from setuptools import setup
+
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 with open("README.md", "r") as f:
     long_description = f.read()
+
+with open("requirements.txt", "r") as f:
+    requirements = f.read().splitlines()
 
 setup(
     name='rjdl',
@@ -17,8 +23,8 @@ setup(
     url='https://github.com/reza00farjam/radio-javan-downloader',
     author='Reza Farjam',
     author_email='reza.farjam78@gmail.com',
-    packages=setuptools.find_packages(),
     classifiers=[
+        "Environment :: Console",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
