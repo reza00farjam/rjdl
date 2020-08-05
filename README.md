@@ -1,5 +1,5 @@
 ## about rjdl
-* with this package you will be able to save **musics**, **videos (music videos & rj-tv shows)**, **podcasts** and **playlists** from *radiojavan website* to your personal computer.   
+* with this package you will be able to save **musics**, **videos (music videos & rj-tv shows)**, **podcasts**, **playlists** and **albums** from *radiojavan website* to your personal computer.   
 * *podcasts* will be saved in **192 kbps** quality, *musics* in **256 kbps** quality, and for *videos* you can choose beetwin **lq (480p)**, **hq (720p)** and **hd (1080p)** quality if they are available.  
 * this package can be used in 2 ways. a *python madule*, or a *command* in your os console.   
 
@@ -51,7 +51,7 @@ sample code:
 
 ------
 
-* the **podcast** attribute is similar to music attribute, but it is for podcasts!  
+* the **podcast** attribute is similar to *music* attribute.  
 sample code:
 
 ```python
@@ -101,11 +101,54 @@ sample code:
  Song:    Blue Dream
  Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Poobon-Blue-Dream.mp3
  -----
- Artist:  Babak Jahanbakhsh
- Song:    Adamkosh
- Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Babak-Jahanbakhsh-Adamkosh.mp3
- -----
  ...
  ...
  ...
+```
+
+------
+
+* the **album** attribute is similar to *playlist* attribute.  
+sample code:
+
+```python
+>>> import rjdl
+>>> rjdl.album('https://www.radiojavan.com/mp3s/album/Shayea-Injaneb')
+```
+
+```
+Shayea | Injaneb
+-----
+Song:	Intro (Injaneb)
+Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Intro-(Injaneb).mp3
+-----
+Song:	Injaneb
+Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Injaneb.mp3
+-----
+Song:	Ahle Naa Ahli
+Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Ahle-Naa-Ahli.mp3
+-----
+Song:	Ehtiaj Daram
+Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Ehtiaj-Daram.mp3
+-----
+Song:	Manam Oon Ke Maghroor
+Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Manam-Oon-Ke-Maghroor.mp3
+-----
+...
+...
+...
+```
+
+------
+
+* the **link** attribute is like an *all in one* for other attributes! this attribute gets one argument that is a url of desired *music*, *video*, *podcast*, *playlist* or *album* *(video urls can have a seceond argument for quality)*. it returns a list of direct download links of desired files in that url.  
+sample code:
+
+```python
+>>> import rjdl
+>>> rjdl.link('https://www.radiojavan.com/mp3s/album/Mohsen-Chavoshi-Amire-Bi-Gazand')
+```
+
+```
+['https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Amire-Bi-Gazand.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Dele-Man.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Changiz.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-In-Kist-In.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Jangzadeh.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Sheydaei.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Shah-Maghsood.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Parishan.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Sharmsari.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Akharin-Otobus.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Teryagh.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Motasel.mp3']
 ```
