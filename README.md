@@ -27,7 +27,7 @@ sample code:
  Link:  https://host2.rj-mw1.com/media/mp3/mp3-256/Koorosh-Azin-Manzare-(Ft-Cornellaa).mp3
  
  Downloading ...
- |█████████████████---------------------------------|  34% |  148.40 kbps  
+ |████████████████████████████████████████████------|  88% |  506.05 kbps 
 ```
 
 ------
@@ -70,7 +70,7 @@ sample code:
 
 ------
 
-* the **playlist** attribute scrapes playlist's name along its included songs info, and return them with direct download link of each song. it takes only one argument that is url of desired playlist. this attribute, unlike previous attributes, dosen't download files.  
+* the **playlist** attribute scrapes *playlist's name* along with its included *songs info*, and return them with *direct download link* of each song. it takes only *one argument* that is url of desired playlist. this attribute, unlike previous attributes, *dosen't download files*.  
 sample code:
 
 ```python
@@ -79,33 +79,33 @@ sample code:
 ```
 
 ```
-Today's Top Hits | 30 Songs
------
-Artist:  Garsha Rezaei
-Song:    Darya Darya
-link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Garsha-Rezaei-Darya-Darya.mp3
------
-Artist:  Hamid Hiraad & Ragheb
-Song:    Jazzab
-link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Hamid-Hiraad-Ragheb-Jazzab.mp3
------
-Artist:  Donya
-Song:    Siah Sefid
-link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Siah-Sefid.mp3
------
-Artist:  Donya
-Song:    Mese Man
-link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Mese-Man.mp3
------
-Artist:  Poobon
-Song:    Blue Dream
-link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Poobon-Blue-Dream.mp3
------
-Artist:  Babak Jahanbakhsh
-Song:    Adamkosh
-link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Babak-Jahanbakhsh-Adamkosh.mp3
------
-...
-...
-...
+ Today's Top Hits | 30 Songs
+ -----
+ Artist:  Garsha Rezaei
+ Song:    Darya Darya
+ Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Garsha-Rezaei-Darya-Darya.mp3
+ -----
+ Artist:  Hamid Hiraad & Ragheb
+ Song:    Jazzab
+ Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Hamid-Hiraad-Ragheb-Jazzab.mp3
+ -----
+ Artist:  Donya
+ Song:    Siah Sefid
+ Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Siah-Sefid.mp3
+ -----
+ Artist:  Donya
+ Song:    Mese Man
+ Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Mese-Man.mp3
+ -----
+ Artist:  Poobon
+ Song:    Blue Dream
+ Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Poobon-Blue-Dream.mp3
+ -----
+ Artist:  Babak Jahanbakhsh
+ Song:    Adamkosh
+ Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Babak-Jahanbakhsh-Adamkosh.mp3
+ -----
+ ...
+ ...
+ ...
 ```
