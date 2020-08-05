@@ -1,14 +1,8 @@
-import os
-import sys
 import rjdl
 from setuptools import setup
 
-read_me = open(os.path.join(os.path.dirname(__file__), 'README.md')).read()
-
-with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as file:
-    requirements = file.read().splitlines()
-
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 setup(
     name='rjdl',
@@ -18,7 +12,7 @@ setup(
     include_package_data=True,
     license='MIT License',
     description='download musics, videos, podcasts, playlists & albums from www.RadioJavan.com',
-    long_description=read_me,
+    long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/reza00farjam/radio-javan-downloader',
     author='Reza Farjam',
