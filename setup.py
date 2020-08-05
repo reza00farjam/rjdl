@@ -19,7 +19,15 @@ setup(
     license='MIT License',
     description='download musics, videos, podcasts, playlists & albums from www.RadioJavan.com',
     long_description=read_me,
+    long_description_content_type="text/markdown",
     url='https://github.com/reza00farjam/radio-javan-downloader',
     author='Reza Farjam',
-    author_email='reza.farjam78@gmail.com'
+    author_email='reza.farjam78@gmail.com',
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
 )
