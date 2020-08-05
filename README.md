@@ -13,7 +13,7 @@ this package is powered by two external python library, **requests** and **Beaut
 ### as a madule
 * first of all, you have to `import rjdl` in your script to be able to use it.
 ------
-* you can use **music** attribute for downloading musics, witch takes *exactly one argument* that is a *url* to your desired song. it returns song info, direct download link if you want to download it with download manager apps, and finally starts to download the song.  
+* you can use **music** attribute for downloading musics. it takes *exactly one argument* that is a *url* to your desired song. it returns song info, direct download link if you want to download it with download manager apps, and finally starts to download the song.  
 sample code:
 
 ```python
@@ -31,6 +31,7 @@ sample code:
 ```
 
 ------
+
 * the **video** attribute can be used to download *music videos* or *rj-tv shows*. it takes *two arguments*. first one is *url* of your video, and the second argument is *quality* of the video that is set to *hq*  by default but you can change it to *lq* or *hd*. it returns video info, direct download link if you want to download it with download manager apps, and at the end starts to download the video.  
 sample code:  
 
@@ -46,4 +47,23 @@ sample code:
  
  Downloading ...
  |████████------------------------------------------|  16% |  496.75 kbps 
+```
+
+------
+
+* the **podcast** attribute is similar to music attribute, but it is for podcasts!  
+sample code:
+
+```
+>>> import rjdl
+>>> rjdl.podcast('https://www.radiojavan.com/podcasts/podcast/RJ-Interview-Donya-Shatranji-Album')
+```
+
+```
+ Name:  RJ-Interview-Donya-Shatranji-Album.mp3
+ Size:  41.22 Mb
+ Link:  https://host2.rj-mw1.com/media/podcast/mp3-192/RJ-Interview-Donya-Shatranji-Album.mp3
+ 
+ Downloading ...
+ |████████████████----------------------------------|  32% |  232.25 kbps
 ```
