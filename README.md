@@ -1,6 +1,6 @@
 ## about rjdl
 * with this package you will be able to save **musics**, **videos (music videos & rj-tv shows)**, **podcasts**, **playlists** and **albums** from *radiojavan website* to your personal computer.   
-* *podcasts* will be saved in **192 kbps** quality, *musics* in **256 kbps** quality, and for *videos* you can choose beetwin **lq (480p)**, **hq (720p)** and **hd (1080p)** quality if they are available.  
+* *podcasts* will be saved in **192 kbps** quality, *musics* in **256 kbps** quality, and for *videos* you can choose between **lq (480p)**, **hq (720p)** and **hd (1080p)** quality if they are available.  
 * this package can be used in 2 ways. a *python madule*, or a *command* in your os console.   
 
 ## requirements
@@ -10,7 +10,9 @@ this package is powered by two external python library, **requests** and **Beaut
 `pip install bs4`
 
 ## usage
-### as a madule
+
+### in script
+
 * first of all, you have to `import rjdl` in your script to be able to use it.
 ------
 * you can use **music** attribute for downloading musics. it takes *exactly one argument* that is a *url* to your desired song. it returns song info, direct download link if you want to download it with download manager apps, and finally starts to download the song.  
@@ -46,7 +48,7 @@ sample code:
  Link:  https://host2.rj-mw1.com/media/music_video/lq/gringo-show-season-2-episode-33.mp4
  
  Downloading ...
- |████████------------------------------------------|  16% |  496.75 kbps 
+ |█████████████████████████-------------------------|  50% |  496.75 kbps 
 ```
 
 ------
