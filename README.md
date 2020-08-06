@@ -37,7 +37,7 @@ example in windows's console *(cmd)*:
 ### in script
 
 * first of all, you have to `import rjdl` in your script to be able to use it.
-------
+
 * you can use **music** attribute for downloading musics. it takes *exactly one argument* that is a *url* to your desired song. it returns song info, direct download link if you want to download it with download manager apps, and finally starts to download the song.  
 sample code:
 
@@ -54,8 +54,6 @@ sample code:
  Downloading ...
  |████████████████████████████████████████████------|  88% |  506.05 kbps 
 ```
-
-------
 
 * the **video** attribute can be used to download *music videos* or *rj-tv shows*. it takes *two arguments*, first one is *url* of your video and the second argument is *quality* of the video that is set to *hq*  by default but you can change it to *lq* or *hd*. it returns video info, direct download link if you want to download it with download manager apps, and finally starts to download the video.  
 sample code:  
@@ -74,8 +72,6 @@ sample code:
  |█████████████████████████-------------------------|  50% |  496.75 kbps 
 ```
 
-------
-
 * the **podcast** attribute is similar to *music* attribute.  
 sample code:
 
@@ -92,8 +88,6 @@ sample code:
  Downloading ...
  |████████████████----------------------------------|  32% |  232.25 kbps
 ```
-
-------
 
 * the **playlist** attribute scrapes *playlist's name* along with its included *songs info*, and return them with *direct download link* of each song. it takes only *one argument* that is url of desired playlist. this attribute, unlike previous attributes, *dosen't download files*.  
 sample code:
@@ -131,8 +125,6 @@ sample code:
  ...
 ```
 
-------
-
 * the **album** attribute is similar to *playlist* attribute.  
 sample code:
 
@@ -163,8 +155,6 @@ Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Manam-Oon-Ke-Maghroor.mp
 ...
 ...
 ```
-
-------
 
 * the **link** attribute is like an *all in one* for other attributes! this attribute gets one argument that is a url of desired *music*, *video*, *podcast*, *playlist* or *album* *(video urls can have a seceond argument for quality)*. it returns a list of direct download links of desired files in that url.  
 sample code:
