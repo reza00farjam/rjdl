@@ -28,8 +28,7 @@ use `pip install rjdl` in command line for installing package. (of course for be
 
 example in windows's console *(cmd)*:  
 
-![exmp](http://www.mediafire.com/convkey/e8ce/hzvygnnurpbn9oezg.jpg)
-
+<img src="http://www.mediafire.com/convkey/e8ce/hzvygnnurpbn9oezg.jpg" width="600">
 
 ### in script
 
