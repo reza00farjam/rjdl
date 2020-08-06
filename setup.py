@@ -1,5 +1,5 @@
-import rjdl
 import os
+import rjdl
 from setuptools import setup
 
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
@@ -23,6 +23,11 @@ setup(
     url='https://github.com/reza00farjam/radio-javan-downloader',
     author='Reza Farjam',
     author_email='reza.farjam78@gmail.com',
+    entry_points={
+        'console_scripts': [
+            'rjdl = rjdl.rjdl:__main',
+        ]
+    },
     classifiers=[
         "Environment :: Console",
         "Programming Language :: Python :: 3",
