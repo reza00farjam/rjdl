@@ -3,7 +3,7 @@
 [usage - in console](#in-console)  
 [usage - in script](#in-script)  
 
-
+---
 # about rjdl
 
 * with this package you will be able to save **musics**, **videos (music videos & rj-tv shows)**, **podcasts**, **playlists** and **albums** from *radiojavan website* to your personal computer.   
@@ -12,9 +12,13 @@
 * if you live in *iran*, you need to turn on your **vpn** while using this package.
 * this package can be used in 2 ways. a *python madule*, or a *command* in your os console.   
 
+---
+
 # install
 
 use `pip install rjdl` in command line for installing package. (of course for being able to use *pip* command, you need to have python installed and added to your *computer's path* first)
+
+---
 
 # usage
 
