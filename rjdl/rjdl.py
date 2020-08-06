@@ -174,7 +174,6 @@ def video(url, quality='hq'):
             raise Exception("{} Quality Isn't Available!".format(quality.upper()))
     except:
         raise ConnectionError("Check Your Connection!")
-        
 
 def __main():
     if len(__sys.argv) == 1:
