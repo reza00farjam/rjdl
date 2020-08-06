@@ -25,7 +25,7 @@ setup(
     author_email='reza.farjam78@gmail.com',
     entry_points={
         'console_scripts': [
-            'rjdl = rjdl.rjdl:__main',
+            'rjdl = rjdl:__main',
         ]
     },
     classifiers=[
