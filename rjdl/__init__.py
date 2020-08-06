@@ -4,7 +4,7 @@ import requests as __requests
 from getpass import getuser as __getuser
 from bs4 import BeautifulSoup as __bs
 
-__version__ = '0.0.1'
+__version__ = '0.1.0'
 __link = []
 __flag = True
 
