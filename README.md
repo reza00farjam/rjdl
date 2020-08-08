@@ -1,5 +1,5 @@
 [about rjdl](#about-rjdl)  
-[install](#install)  
+[installation](#installation)  
 [usage - in console](#in-console)  
 [usage - in script](#in-script)  
 
@@ -8,13 +8,13 @@
 
 * with this package you will be able to save **musics**, **videos (music videos & rj-tv shows)**, **podcasts**, **playlists** and **albums** from *radiojavan website* to your personal computer.   
 * *podcasts* will be saved in **192 kbps** quality, *musics* in **256 kbps** quality, and for *videos* you can choose between **lq (480p)**, **hq (720p)** and **hd (1080p)** quality if they are available.  
-* *mp3s* will be saved in **"C:\Users\\\<your-username>\Music"**, and *videos* will be saved in **"C:\Users\\\<your-username>\Videos"**.  
+* for *windows* systems *mp3s* will be saved in **"C:\Users\\\<your-username>\Music"**, and *videos* will be saved in **"C:\Users\\\<your-username>\Videos"**. and for *non windows* systems saving path will be **current working directory**.
 * if you live in *iran*, you need to turn on your **vpn** while using this package.
 * this package can be used in 2 ways. a *python madule*, or a *command* in your os console.   
 
 ---
 
-# install
+# installation
 
 use `pip install rjdl` in command line for installing package. (of course for being able to use *pip* command, you need to have python installed and added to your *computer's path* first)
 
@@ -25,10 +25,10 @@ use `pip install rjdl` in command line for installing package. (of course for be
 ### in console
 
 * for downloading *musics*, *podcasts*, *playlists* & *albums*, use following pattern:   
-`rjdl <url>`  
+`rjdl "<url>"`  
 
 * and for downloading *music videos* & *rj-tv shows*, use same pattern with an extra optional argument for quality *(it is set to hd by default)*:  
-`rjdl <url> <quality>`  
+`rjdl "<url>" "<quality>"`  
 
 example in windows's console *(cmd)*:  
 
