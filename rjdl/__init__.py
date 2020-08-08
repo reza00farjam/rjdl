@@ -1,11 +1,14 @@
 import sys as __sys
 import time as __time
+import os as __os
 import requests as __requests
+from platform import system as __system
 from getpass import getuser as __getuser
 from bs4 import BeautifulSoup as __bs
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __link = []
+__console = False
 __flag = True
 
 def __downloader(url):
@@ -14,32 +17,48 @@ def __downloader(url):
     name = hdr.headers['Content-Disposition']
     name = name[name.find('"')+1: -1]
     
-    print("Name:  {}".format(name))
-    print("Size:  {} Mb".format(round(int(hdr.headers['Content-Length']) / 1048675.44, 2)))
-    print("Link:  {}".format(url))
+    if __system() == 'Windows':
+        directory = "C:\\Users\\{}\\Music\\".format(__getuser()) if '.mp3' in name else "C:\\Users\\{}\\Videos\\".format(__getuser())
+        if not __os.path.isdir(directory):
+            directory = ''
+    else:
+        directory = ''
     
-    directory = "C:\\Users\\{}\\Music\\".format(__getuser()) if '.mp3' in name else "C:\\Users\\{}\\Videos\\".format(__getuser())
-    
-    print("\nDownloading ...")
-    with open(directory + name, "wb") as file:
-        response = __requests.get(url, allow_redirects=True, stream=True)
+    if __os.path.isfile(directory + name):
+        if __console:
+            return print("--> File Already Exists!")
+        raise FileExistsError("File Already Exists!")
+    else:
+        print("Name:  {}".format(name))
+        print("Size:  {} Mb".format(round(int(hdr.headers['Content-Length']) / 1048675.44, 2)))
+        print("Link:  {}".format(url))
+        print("\nDownloading ...")
         
-        total_length = response.headers.get('content-length')
-        if total_length is None:
-            file.write(response.content)
-        else:
-            dl = 0
-            start = __time.perf_counter()
-            total_length = int(total_length.strip())
-            try:
-                for data in response.iter_content(chunk_size=4096):
-                    dl += len(data)
-                    file.write(data)
-                    done = int(50 * dl / total_length)
-                    __sys.stdout.write("\r|{}{}| {:3}% | {:7.2f} kbps ".format('█' * done, '-' * (50 - done), 2 * done, round((dl / (__time.perf_counter() - start)) / 1000, 2)))    
-                    __sys.stdout.flush()
-            except:
-                raise ConnectionError("Connection Has Broken!")
+        with open(directory + name, "wb") as file:
+            response = __requests.get(url, allow_redirects=True, stream=True)
+            
+            total_length = response.headers.get('content-length')
+            if total_length is None:
+                file.write(response.content)
+            else:
+                dl = 0
+                start = __time.perf_counter()
+                total_length = int(total_length.strip())
+                try:
+                    for data in response.iter_content(chunk_size=4096):
+                        dl += len(data)
+                        file.write(data)
+                        done = int(50 * dl / total_length)
+                        __sys.stdout.write("\r|{}{}| {:3}% | {:7.2f} kbps ".format('█' * done, '-' * (50 - done), 2 * done, round((dl / (__time.perf_counter() - start)) / 1000, 2)))    
+                        __sys.stdout.flush()
+                    print('')
+                except:
+                    file.close()
+                    __os.remove(directory + name)
+                    
+                    if __console:
+                        return print("\n\n--> Connection Has Broken!")
+                    raise ConnectionError("Connection Has Broken!")
 
 def album(url):
     if 'https://www.radiojavan.com/mp3s/album' not in url:
@@ -48,19 +67,26 @@ def album(url):
     try:
         content = __requests.get(url).content
     except:
+        if __console:
+            return print("--> Check Your Connection!")
         raise ConnectionError("Check Your Connection!")
     
     soup = __bs(content, features="html.parser")
     data = soup.findAll('div', href=False, attrs={'class': 'songInfo'})
     
-    flag = True if __flag else False
+    if __flag:
+        try:
+            print("{} | {}\n-----".format(data[0].text.strip().split('\n')[0], data[0].text.strip().split('\n')[1]))
+        except:
+            if __console:
+                return print("--> Wrong URL!")
+            raise FileNotFoundError("Wrong URL!")
     
-    if flag:
-        print("{} | {}\n-----".format(data[0].text.strip().split('\n')[0], data[0].text.strip().split('\n')[1]))
+    flag = True if __flag else False
     
     for i in range(1, len(data)):
         artist, song = data[i].text.strip().split('\n')
-        url = "https://www.radiojavan.com/mp3s/mp3/{}-{}".format(artist.replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'), song.replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'))
+        url = "https://www.radiojavan.com/mp3s/mp3/{}-{}".format(artist.replace('+', '').replace(':', '').replace('!', '').replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'), song.replace('+', '').replace(':', '').replace('!', '').replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'))
         globals()['__flag'] = False
         music(url)
         if flag:
@@ -100,6 +126,8 @@ def music(url):
     try:
         resp = __requests.post("https://www.radiojavan.com/mp3s/mp3_host", params={'id': name})
     except:
+        if __console:
+            return print("--> Check Your Connection!")
         raise ConnectionError("Check Your Connection!")
     
     if __flag:
@@ -115,19 +143,26 @@ def playlist(url):
     try:
         content = __requests.get(url).content
     except:
+        if __console:
+            return print("--> Check Your Connection!")
         raise ConnectionError("Check Your Connection!")
     
     soup = __bs(content, features="html.parser")
     data = soup.findAll('div', href=False, attrs={'class': 'songInfo'})
     
-    flag = True if __flag else False
+    if __flag:
+        try:
+            print("{} | {}\n-----".format(data[0].text.strip().split('\n')[0], data[0].text.strip().split('|')[1].strip().title()))
+        except:
+            if __console:
+                return print("--> Wrong URL!")
+            raise FileNotFoundError("Wrong URL!")
     
-    if flag:
-        print("{} | {}\n-----".format(data[0].text.strip().split('\n')[0], data[0].text.strip().split('|')[1].strip().title()))
+    flag = True if __flag else False
     
     for i in range(1, len(data)):
         artist, song = data[i].text.strip().split('\n')
-        url = "https://www.radiojavan.com/mp3s/mp3/{}-{}".format(artist.replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'), song.replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'))
+        url = "https://www.radiojavan.com/mp3s/mp3/{}-{}".format(artist.replace('+', '').replace(':', '').replace('!', '').replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'), song.replace('+', '').replace(':', '').replace('!', '').replace(',', '').replace('& ', '').replace('\'', '').replace(' ', '-'))
         globals()['__flag'] = False
         music(url)
         if flag:
@@ -146,6 +181,8 @@ def podcast(url):
     try:
         resp = __requests.post("https://www.radiojavan.com/podcasts/podcast_host", params={'id': name})
     except:
+        if __console:
+            return print("--> Check Your Connection!")
         raise ConnectionError("Check Your Connection!")
     
     if __flag:
@@ -172,33 +209,47 @@ def video(url, quality='hq'):
                 __link.append("{}/media/music_video/{}/{}.mp4".format(resp.json()["host"], quality, name))
                 globals()['__flag'] = True
         except:
+            if __console:
+                return print("--> {} Quality Isn't Available!".format(quality.upper()))
             raise Exception("{} Quality Isn't Available!".format(quality.upper()))
     except:
+        if __console:
+            return print("--> Check Your Connection!")
         raise ConnectionError("Check Your Connection!")
 
 def __main():
+    globals()['__console'] = True
+    
     if len(__sys.argv) == 1:
-        print("--> Arguments Can't Be Empty!", end='')
+        print("--> Arguments Can't Be Empty!")
     elif len(__sys.argv) > 3:
-        print("--> Too Much Argument!", end='')
+        print("--> Too Much Argument!")
     else:
         url = str(__sys.argv[1])
         
         if 'https://www.radiojavan.com/mp3s/album' in url:
+            if len(__sys.argv) == 3:
+                return print("--> Albums Take Only One Argument!")
             album(url)
         elif 'https://www.radiojavan.com/mp3s' in url:
+            if len(__sys.argv) == 3:
+                return print("--> Musics Take Only One Argument!")
             music(url)
         elif 'https://www.radiojavan.com/playlists' in url:
+            if len(__sys.argv) == 3:
+                return print("--> Playlists Take Only One Argument!")
             playlist(url)
         elif 'https://www.radiojavan.com/podcasts' in url:
+            if len(__sys.argv) == 3:
+                return print("--> Podcasts Take Only One Argument!")
             podcast(url)
         elif 'https://www.radiojavan.com/videos' in url:
             if len(__sys.argv) == 3:
                 if __sys.argv[2].lower().strip() in ['lq', 'hq', 'hd']:
                     video(url, __sys.argv[2].lower().strip())
                 else:
-                    print("--> Wrong Quality!", end='')
+                    print("--> Wrong Quality!")
             else:
                 video(url)
         else:
-            print("--> Wrong URL!", end='')
+            print("--> Wrong URL!")
