@@ -64,6 +64,9 @@ def album(url):
     if 'https://www.radiojavan.com/mp3s/album' not in url:
         raise FileNotFoundError("Wrong URL!")
     
+    if '?' in url:
+        url = url.split('?')[0]
+    
     try:
         content = __requests.get(url).content
     except:
@@ -100,7 +103,7 @@ def link(url, quality='hq'):
     
     if 'https://www.radiojavan.com/mp3s/album' in url:
         album(url)
-    elif 'https://www.radiojavan.com/mp3s' in url:
+    elif 'https://www.radiojavan.com/mp3s/mp3' in url:
         music(url)
     elif 'https://www.radiojavan.com/playlists' in url:
         playlist(url)
@@ -115,7 +118,7 @@ def link(url, quality='hq'):
     return __link
 
 def music(url):
-    if 'https://www.radiojavan.com/mp3s' not in url:
+    if 'https://www.radiojavan.com/mp3s/mp3' not in url:
         raise FileNotFoundError("Wrong URL!")
     
     if '?' in url:
@@ -231,7 +234,7 @@ def __main():
             if len(__sys.argv) == 3:
                 return print("--> Albums Take Only One Argument!")
             album(url)
-        elif 'https://www.radiojavan.com/mp3s' in url:
+        elif 'https://www.radiojavan.com/mp3s/mp3' in url:
             if len(__sys.argv) == 3:
                 return print("--> Musics Take Only One Argument!")
             music(url)
