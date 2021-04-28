@@ -2,30 +2,32 @@ import os
 import rjdl
 from setuptools import setup
 
+
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as file:
+    long_description = file.read()
+
+with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as file:
+    requirements = file.read().splitlines()
+
+# Allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
-with open("README.md", "r") as f:
-    long_description = f.read()
-
-with open("requirements.txt", "r") as f:
-    requirements = f.read().splitlines()
-
 setup(
-    name='rjdl',
+    name="rjdl",
     version=rjdl.__version__,
-    packages=['rjdl',],
-    install_requires=requirements,   
+    packages=["rjdl"],
+    install_requires=requirements,
     include_package_data=True,
-    license='MIT License',
-    description='download musics, videos, podcasts, playlists & albums from www.RadioJavan.com',
+    license="MIT License",
+    description="Download Music, Video, Album, Podcast & Playlists from www.RadioJavan.com",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/reza00farjam/radio-javan-downloader',
-    author='Reza Farjam',
-    author_email='reza.farjam78@gmail.com',
+    url="https://github.com/reza00farjam/rjdl",
+    author="Reza Farjam",
+    author_email="reza.farjam78@gmail.com",
     entry_points={
-        'console_scripts': [
-            'rjdl = rjdl:__main',
+        "console_scripts": [
+            "rjdl = rjdl.console:main",
         ]
     },
     classifiers=[
@@ -34,5 +36,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires=">=3.6"
 )

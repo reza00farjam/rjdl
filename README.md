@@ -1,169 +1,70 @@
-[about rjdl](#about-rjdl)  
-[installation](#installation)  
-[usage - in console](#in-console)  
-[usage - in script](#in-script)  
+﻿[![Python 3](https://img.shields.io/badge/python-3-blue)](https://pypi.org/project/rjdl/)
+[![PyPI](https://img.shields.io/badge/pypi-v1.0.0-blue)](https://pypi.org/project/rjdl/)
+[![LICENSE](https://img.shields.io/badge/license-MIT-blue)](https://github.com/reza00farjam/rjdl/blob/master/LICENSE)
+[![Downloads](https://pepy.tech/badge/rjdl)](https://pepy.tech/project/rjdl)
 
----
-# about rjdl
+* This package can be used in two different ways:
+  * If you want to use it as a downloader only, then you can simply use its CLI.
+  * But if you are a more advanced user and want to use this package in your projects, then you can import it in your project and you're good to go.   
+* With this package you will be able to save any **Music**, **Video (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist** from [RadioJavan](www.radiojavan.com) to your personal computer.   
+* *Podcasts* will be saved in **192 kbps** quality only, while you can choose between **256 kbps** and **320 kbps** for *Songs (Albums & Playlists as well)*, and **480p**, **720p** and **1080p** for *Videos* if available.  
+* If you are currently living in *Iran*, you need to turn on your **VPN** while using this package.
 
-* with this package you will be able to save **musics**, **videos (music videos & rj-tv shows)**, **podcasts**, **playlists** and **albums** from *radiojavan website* to your personal computer.   
-* *podcasts* will be saved in **192 kbps** quality, *musics* in **256 kbps** quality, and for *videos* you can choose between **lq (480p)**, **hq (720p)** and **hd (1080p)** quality if they are available.  
-* for *windows* systems *mp3s* will be saved in **"C:\Users\\\<your-username>\Music"**, and *videos* will be saved in **"C:\Users\\\<your-username>\Videos"**. and for *non windows* systems saving path will be **current working directory**.
-* if you live in *iran*, you need to turn on your **vpn** while using this package.
-* this package can be used in 2 ways. a *python madule*, or a *command* in your os console.   
+## Installation
 
----
+* Use `pip install rjdl` to install the package. (Of course to be able to use *pip*, you need python to be installed and added to computer's path first)  
+* If you want to install the latest version directly from GitHub, then you can use this:  
+`pip install git+git://github.com/reza00farjam/rjdl`
 
-# installation
+## Usage
 
-use `pip install rjdl` in command line for installing package. (of course for being able to use *pip* command, you need to have python installed and added to your *computer's path* first)
-
----
-
-# usage
-
-### in console
-
-* for downloading *musics*, *podcasts*, *playlists* & *albums*, use following pattern:   
-`rjdl "<url>"`  
-
-* and for downloading *music videos* & *rj-tv shows*, use same pattern with an extra optional argument for quality *(it is set to hd by default)*:  
-`rjdl "<url>" "<quality>"`  
-
-example in windows's console *(cmd)*:  
-
-<img src="http://www.mediafire.com/convkey/e8ce/hzvygnnurpbn9oezg.jpg" width="600">
-
-### in script
-
-* first of all, you have to `import rjdl` in your script to be able to use it.
-
-* you can use **music** attribute for downloading musics. it takes *exactly one argument* that is a *url* to your desired song. it returns song info, direct download link if you want to download it with download manager apps, and finally starts to download the song.  
-sample code:
-
-```python
->>> import rjdl
->>> rjdl.music('https://www.radiojavan.com/mp3s/mp3/Koorosh-Azin-Manzare-(Ft-Cornellaa)')
-```
+### Command Line
+The ```rjdl``` as a command, is a well behaved Unix style command line tool that provides you the following optional arguments to use based on the content of your url. You can also list them by running `rjdl -h` or `rjdl --help`:
 
 ```
- Name:  Koorosh-Azin-Manzare-(Ft-Cornellaa).mp3
- Size:  4.85 Mb
- Link:  https://host2.rj-mw1.com/media/mp3/mp3-256/Koorosh-Azin-Manzare-(Ft-Cornellaa).mp3
- 
- Downloading ...
- |████████████████████████████████████████████------|  88% |  506.05 kbps 
+usage: rjdl [-h] [-p PATH] [-t TRACKS] [-m {256,320} | -v {480p,720p,1080p}]
+            [-d] [-r]
+            url
+
+Download Music, Video, Album, Podcast & Playlists from www.RadioJavan.com
+
+positional arguments:
+  url                   URL of desired media
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  download path (default: current working directory)
+  -t TRACKS, --tracks TRACKS
+                        track(s) of Album/Playlist to be downloaded, separated
+                        by white space (default: all tracks)
+  -m {256,320}, --music {256,320}
+                        download quality on Music, Album and Playlist URLs
+                        (default: 320)
+  -v {480p,720p,1080p}, --video {480p,720p,1080p}
+                        download quality on Video URLs (default: 720p)
+  -d, --download        disable downloading (show info only)
+  -r, --rjdl            show rjdl version and exit
 ```
 
-* the **video** attribute can be used to download *music videos* or *rj-tv shows*. it takes *two arguments*, first one is *url* of your video and the second argument is *quality* of the video that is set to *hq*  by default but you can change it to *lq* or *hd*. it returns video info, direct download link if you want to download it with download manager apps, and finally starts to download the video.  
-sample code:  
+#### How it works?
 
-```python
->>> import rjdl
->>> rjdl.video('https://www.radiojavan.com/videos/video/gringo-show-season-2-episode-33', 'lq')
-```
+Simply, just pass rjdl a valid url along with your desired options for it and enjoy your download!
 
-```
- Name:  gringo-show-season-2-episode-33.mp4
- Size:  189.36 Mb
- Link:  https://host2.rj-mw1.com/media/music_video/lq/gringo-show-season-2-episode-33.mp4
- 
- Downloading ...
- |█████████████████████████-------------------------|  50% |  496.75 kbps 
-```
+<gif>
 
-* the **podcast** attribute is similar to *music* attribute.  
-sample code:
+### Script
 
-```python
->>> import rjdl
->>> rjdl.podcast('https://www.radiojavan.com/podcasts/podcast/RJ-Interview-Donya-Shatranji-Album')
-```
+The rjdl as a package, provides enough class and methods to work with [RadioJavan](www.radiojavan.com) for your development purposes. For a good understanding of what it does and how it works, you can take a look at rjdl documentation.
 
-```
- Name:  RJ-Interview-Donya-Shatranji-Album.mp3
- Size:  41.22 Mb
- Link:  https://host2.rj-mw1.com/media/podcast/mp3-192/RJ-Interview-Donya-Shatranji-Album.mp3
- 
- Downloading ...
- |████████████████----------------------------------|  32% |  232.25 kbps
-```
+## Contributing
+* Contributions of all sizes are welcomed and precious. You can follow the steps below for this purpose:
 
-* the **playlist** attribute scrapes *playlist's name* along with its included *songs info*, and return them with *direct download link* of each song. it takes only *one argument* that is url of desired playlist. this attribute, unlike previous attributes, *dosen't download files*.  
-sample code:
+  * [Fork](https://github.com/reza00farjam/rjdl/fork) the repository.
+  * Make all the changes you want to see in the original repository.
+  * Push your changes to a new branch in your fork and [create a pull request](https://github.com/reza00farjam/rjdl/compare) along with an explanation of your changes.
 
-```python
->>> import rjdl
->>> rjdl.playlist('https://www.radiojavan.com/playlists/playlist/mp3/854b87855624')
-```
+* Also you can help us by [reporting bugs and sharing your ideas]((https://github.com/reza00farjam/rjdl/issues/new)). 
 
-```
- Today's Top Hits | 30 Songs
- -----
- Artist:  Garsha Rezaei
- Song:    Darya Darya
- Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Garsha-Rezaei-Darya-Darya.mp3
- -----
- Artist:  Hamid Hiraad & Ragheb
- Song:    Jazzab
- Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Hamid-Hiraad-Ragheb-Jazzab.mp3
- -----
- Artist:  Donya
- Song:    Siah Sefid
- Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Siah-Sefid.mp3
- -----
- Artist:  Donya
- Song:    Mese Man
- Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Donya-Mese-Man.mp3
- -----
- Artist:  Poobon
- Song:    Blue Dream
- Link:    https://host2.rj-mw1.com/media/mp3/mp3-256/Poobon-Blue-Dream.mp3
- -----
- ...
- ...
- ...
-```
-
-* the **album** attribute is similar to *playlist* attribute.  
-sample code:
-
-```python
->>> import rjdl
->>> rjdl.album('https://www.radiojavan.com/mp3s/album/Shayea-Injaneb')
-```
-
-```
-Shayea | Injaneb
------
-Song:	Intro (Injaneb)
-Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Intro-(Injaneb).mp3
------
-Song:	Injaneb
-Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Injaneb.mp3
------
-Song:	Ahle Naa Ahli
-Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Ahle-Naa-Ahli.mp3
------
-Song:	Ehtiaj Daram
-Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Ehtiaj-Daram.mp3
------
-Song:	Manam Oon Ke Maghroor
-Link:	https://host2.rj-mw1.com/media/mp3/mp3-256/Shayea-Manam-Oon-Ke-Maghroor.mp3
------
-...
-...
-...
-```
-
-* the **link** attribute is like an *all in one* for other attributes! this attribute gets one argument that is a url of desired *music*, *video*, *podcast*, *playlist* or *album* *(video urls can have a seceond argument for quality)*. it returns a list of direct download links of desired files in that url.  
-sample code:
-
-```python
->>> import rjdl
->>> rjdl.link('https://www.radiojavan.com/mp3s/album/Mohsen-Chavoshi-Amire-Bi-Gazand')
-```
-
-```
-['https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Amire-Bi-Gazand.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Dele-Man.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Changiz.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-In-Kist-In.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Jangzadeh.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Sheydaei.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Shah-Maghsood.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Parishan.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Sharmsari.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Akharin-Otobus.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Teryagh.mp3', 'https://host1.rj-mw1.com/media/mp3/mp3-256/Mohsen-Chavoshi-Motasel.mp3']
-```
+## Copyright & License
+* Copyright (C) 2020-2021 Reza Farjam <<https://github.com/reza00farjam>>
+* Licensed under the terms of the [MIT License](https://github.com/reza00farjam/rjdl/blob/master/LICENSE).

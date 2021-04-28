@@ -1,6 +1,6 @@
-*.DS_Store
-*.pyc
-*.bak
-build/
+.idea/
+venv/
 dist/
-env/
+docs/build
+rjdl.egg-info/
+rjdl/__pycache__/
