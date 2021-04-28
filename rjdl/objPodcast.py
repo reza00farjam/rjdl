@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 
 
 class Podcast:
-    """
-    This object represents a RadioJvan podcast.
+    """This object represents a RadioJvan podcast.
 
     Objects of this class are comparable in terms of equality. Two objects of this class are
     considered equal, if their :attr:`url` is equal.
@@ -92,6 +91,6 @@ class Podcast:
             raise ConnectionError("Check your connection!") from None
 
     def __eq__(self, other):
-        if type(self) != type(other):
+        if not isinstance(other, Podcast):
             return False
         return self.url == other.url

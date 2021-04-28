@@ -4,8 +4,7 @@ from rjdl.objMusic import Music
 
 
 class Playlist:
-    """
-    This object represents a RadioJvan playlist.
+    """This object represents a RadioJvan playlist.
 
     Objects of this class are comparable in terms of equality. Two objects of this class are
     considered equal, if their :attr:`id` is equal.
@@ -66,7 +65,7 @@ class Playlist:
             raise ConnectionError("Check your connection!") from None
 
     def __eq__(self, other):
-        if type(self) != type(other):
+        if not isinstance(other, Playlist):
             return False
         return self.id == other.id
 

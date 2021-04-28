@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 
 
 def search(string: str) -> dict:
-    """
-    Searches given string in RadioJavan database and return a dictionary of founded results.
+    """Searches given string in RadioJavan database and return a dictionary of founded results.
 
     Args:
         string (:obj:`str`): String to be searched.

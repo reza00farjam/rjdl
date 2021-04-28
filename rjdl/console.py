@@ -9,7 +9,7 @@ from rjdl.objPlaylist import Playlist
 from rjdl.downloader import downloader
 
 
-def main():
+def parse_args():
     parser = argparse.ArgumentParser(prog="rjdl",
                                      fromfile_prefix_chars='@',
                                      description="Download Music, Video, Album, Podcast & Playlists from www.RadioJavan.com"
@@ -59,6 +59,11 @@ def main():
                         help="show rjdl version and exit"
                         )
 
+    return parser
+
+
+def main():
+    parser = parse_args()
     args = parser.parse_args()
 
     if not args.url.startswith("https://"):

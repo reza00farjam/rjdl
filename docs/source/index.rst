@@ -1,5 +1,5 @@
-rjdl Documentation
-------------------
+Welcome to rjdl documentation!
+------------------------------
 
 -  This package can be used in two different ways:
 -  If you want to use it as a downloader only, then you can simply use
@@ -69,11 +69,17 @@ How it works?
 Simply, just pass rjdl a valid url along with your desired options for
 it and enjoy your download!
 
+.. image:: https://github.com/reza00farjam/rjdl/blob/master/example.gif
+  :width: 500
+  :alt: Example
+
 Script
 ~~~~~~
 
 The rjdl as a package, provides enough class and methods to work with
-`RadioJavan <www.radiojavan.com>`__ for your development purposes.
+`RadioJavan <www.radiojavan.com>`__ for your development purposes. For
+a good understanding of what it does and how it works, you can take a look
+at following documentation:
 
 .. toctree::
    rjdl
