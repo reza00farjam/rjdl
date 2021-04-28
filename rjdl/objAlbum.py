@@ -4,6 +4,7 @@ from rjdl.objMusic import Music
 
 
 class Album:
+
     """This object represents a RadioJvan album.
 
     Objects of this class are comparable in terms of equality. Two objects of this class are
@@ -69,6 +70,7 @@ class Album:
         return self.url == other.url
 
     def track(self, index: int) -> Music:
+
         """
         Args:
             index (:obj:`int`): Index of desired album track.

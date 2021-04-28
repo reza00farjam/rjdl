@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 
 
 class Video:
+
     """This object represents a RadioJvan video.
 
     Objects of this class are comparable in terms of equality. Two objects of this class are

@@ -4,22 +4,22 @@
 [![LICENSE](https://img.shields.io/badge/license-MIT-green)](https://github.com/reza00farjam/rjdl/blob/master/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/rjdl/badge/?version=latest)](https://rjdl.readthedocs.io/en/latest/?badge=latest)
 
-  * This package can be used in two different ways:  
+* This package can be used in two different ways:  
     * If you want to use it as a downloader only, then you can simply use its CLI.  
     * But if you are a more advanced user and want to use this package in your projects, then you can import it in your project and you're good to go.  
-
-  * With this package you will be able to save any **Music**, **Video (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist** from [RadioJavan](www.radiojavan.com) to your personal computer.  
-
-  * *Podcasts* will be saved in **192 kbps** quality only, while you can choose between **256 kbps** and **320 kbps** for *Songs (Albums & Playlists as well)*, and **480p**, **720p** and **1080p** for *Videos* if available.  
-
-  * If you are currently living in *Iran*, you need to turn on your **VPN** while using this package.
+  
+* With this package you will be able to save any **Music**, **Video (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist** from [RadioJavan](www.radiojavan.com) to your personal computer.  
+    
+* *Podcasts* will be saved in **192 kbps** quality only, while you can choose between **256 kbps** and **320 kbps** for *Songs (Albums & Playlists as well)*, and **480p**, **720p** and **1080p** for *Videos* if available.  
+    
+* If you are currently living in *Iran*, you need to turn on your **VPN** while using this package.
 
 ## Installation
 
-  * Use `pip install rjdl` to install the package. (Of course to be able to use *pip*, you need python to be installed and added to computer's path first)  
-
-  * If you want to install the latest version directly from GitHub, then you can use this:  
-  `pip install git+git://github.com/reza00farjam/rjdl`  
+* Use `pip install rjdl` to install the package. (Of course to be able to use *pip*, you need python to be installed and added to computer's path first)  
+    
+* If you want to install the latest version directly from GitHub, then you can use this:  
+`pip install git+git://github.com/reza00farjam/rjdl`  
 
 ## Usage
 
@@ -56,24 +56,24 @@ optional arguments:
 
 Simply, just pass rjdl a valid url along with your desired options for it and enjoy your download!
 
-<img src="https://github.com/reza00farjam/rjdl/blob/master/example.gif" width="500" alt="Example">
-
 ### Script
 
-The rjdl as a package, provides enough class and methods to work with [RadioJavan](www.radiojavan.com) for your development purposes. For a good understanding of what it does and how it works, you can take a look at [rjdl documentation](https://rjdl.readthedocs.io/en/latest/).
+The rjdl as a package, provides enough class and methods to work with [RadioJavan](www.radiojavan.com) for your
+development purposes. For a good understanding of what it does and how it works, you can take a look at
+[rjdl documentation](https://rjdl.readthedocs.io/en/latest/).
 
 ## Contributing
 
-  * Contributions of all sizes are welcomed and precious. You can follow the steps below for this purpose:
+* Contributions of all sizes are welcomed and precious. You can follow the steps below for this purpose:
 
     * [Fork](https://github.com/reza00farjam/rjdl/fork) the repository.
     * Make all the changes you want to see in the original repository.
     * Push your changes to a new branch in your fork and [create a pull request](https://github.com/reza00farjam/rjdl/compare) along with an explanation of your changes.
-
-  * Also you can help us by [reporting bugs and sharing your ideas]((https://github.com/reza00farjam/rjdl/issues/new)). 
+  
+* Also you can help us by [reporting bugs and sharing your ideas]((https://github.com/reza00farjam/rjdl/issues/new)). 
 
 ## Copyright & License
 
-  * Copyright (C) 2020-2021 Reza Farjam <<https://github.com/reza00farjam>>
-
-  * Licensed under the terms of the [MIT License](https://github.com/reza00farjam/rjdl/blob/master/LICENSE).
+* Copyright (C) 2020-2021 Reza Farjam <<https://github.com/reza00farjam>>
+    
+* Licensed under the terms of the [MIT License](https://github.com/reza00farjam/rjdl/blob/master/LICENSE).

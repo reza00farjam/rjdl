@@ -4,6 +4,7 @@ from rjdl.objMusic import Music
 
 
 class Playlist:
+
     """This object represents a RadioJvan playlist.
 
     Objects of this class are comparable in terms of equality. Two objects of this class are
@@ -70,6 +71,7 @@ class Playlist:
         return self.id == other.id
 
     def track(self, index: int) -> Music:
+
         """
         Args:
             index (:obj:`int`): Index of desired playlist track.

@@ -63,15 +63,11 @@ or ``rjdl --help``:
       -d, --download        disable downloading (show info only)
       -r, --rjdl            show rjdl version and exit
 
-How it works?
+How it works
 ^^^^^^^^^^^^^
 
 Simply, just pass rjdl a valid url along with your desired options for
 it and enjoy your download!
-
-.. image:: https://github.com/reza00farjam/rjdl/blob/master/example.gif
-   :width: 500
-   :alt: Example
 
 Script
 ~~~~~~
@@ -79,7 +75,7 @@ Script
 The rjdl as a package, provides enough class and methods to work with
 `RadioJavan <www.radiojavan.com>`__ for your development purposes. For
 a good understanding of what it does and how it works, you can take a look
-at following documentation:
+at following documentations:
 
 .. toctree::
    rjdl

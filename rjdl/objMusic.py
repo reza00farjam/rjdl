@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 
 
 class Music:
+
     """This object represents a RadioJvan music.
 
     Objects of this class are comparable in terms of equality. Two objects of this class are
