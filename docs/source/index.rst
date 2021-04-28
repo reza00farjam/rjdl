@@ -70,8 +70,8 @@ Simply, just pass rjdl a valid url along with your desired options for
 it and enjoy your download!
 
 .. image:: https://github.com/reza00farjam/rjdl/blob/master/example.gif
-  :width: 500
-  :alt: Example
+   :width: 500
+   :alt: Example
 
 Script
 ~~~~~~
