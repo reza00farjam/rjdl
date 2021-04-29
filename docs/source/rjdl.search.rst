@@ -1,5 +1,5 @@
 search
 ======
 
-.. automodule:: rjdl.search
-    :members:
+.. automodule:: rjdl
+    :members: search

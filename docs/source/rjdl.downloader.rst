@@ -1,5 +1,5 @@
 downloader
 ==========
 
-.. automodule:: rjdl.downloader
-    :members:
+.. automodule:: rjdl
+    :members: downloader
