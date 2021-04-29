@@ -1,12 +1,12 @@
 import sys
 import argparse
 import requests
-from rjdl.objMusic import Music
-from rjdl.objVideo import Video
-from rjdl.objAlbum import Album
-from rjdl.objPodcast import Podcast
-from rjdl.objPlaylist import Playlist
-from rjdl.downloader import downloader
+from .objMusic import Music
+from .objVideo import Video
+from .objAlbum import Album
+from .objPodcast import Podcast
+from .objPlaylist import Playlist
+from .downloader import downloader
 
 
 def parse_args():

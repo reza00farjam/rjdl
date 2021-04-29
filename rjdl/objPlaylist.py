@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from rjdl.objMusic import Music
+from .objMusic import Music
 
 
 class Playlist:
