@@ -3,7 +3,7 @@
 * This package can be used in two different ways:  
     * If you want to use it as a downloader only, then you can simply use its CLI.  
     * But if you are a more advanced user and want to use this package in your projects, then you can import it in your project and you're good to go.
-* With this package you will be able to save any **Music**, **Video (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist** from [RadioJavan](www.radiojavan.com) to your personal computer.  
+* With this package you will be able to save any **Music**, **Video (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist** from [RadioJavan](https://www.radiojavan.com/) to your personal computer.  
 * *Podcasts* will be saved in **192 kbps** quality only, while you can choose between **256 kbps** and **320 kbps** for *Songs (Albums & Playlists as well)*, and **480p**, **720p** and **1080p** for *Videos* if available.  
 * If you are currently living in *Iran*, you need to turn on your **VPN** while using this package.
 
@@ -50,7 +50,7 @@ Simply, just pass rjdl a valid url along with your desired options for it and en
 
 ### Script
 
-The rjdl as a package, provides enough class and methods to work with [RadioJavan](www.radiojavan.com) for your
+The rjdl as a package, provides enough class and methods to work with RadioJavan for your
 development purposes. For a good understanding of what it does and how it works, you can take a look at
 [rjdl documentation](https://rjdl.readthedocs.io/en/latest/).
 
@@ -60,7 +60,7 @@ development purposes. For a good understanding of what it does and how it works,
     * [Fork](https://github.com/reza00farjam/rjdl/fork) the repository.  
     * Make all the changes you want to see in the original repository.  
     * Push your changes to a new branch in your fork and [create a pull request](https://github.com/reza00farjam/rjdl/compare) along with an explanation of your changes.  
-* Also you can help us by [reporting bugs and sharing your ideas]((https://github.com/reza00farjam/rjdl/issues/new)).  
+* Also you can help us by [reporting bugs and sharing your ideas](https://github.com/reza00farjam/rjdl/issues/new).  
 
 ## Copyright & License
 

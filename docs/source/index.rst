@@ -9,7 +9,7 @@ Welcome to rjdl documentation!
    to go.
 -  With this package you will be able to save any **Music**, **Video
    (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist**
-   from `RadioJavan <www.radiojavan.com>`__ to your personal computer.
+   from `RadioJavan <https://www.radiojavan.com/>`__ to your personal computer.
 -  *Podcasts* will be saved in **192 kbps** quality only, while you can
    choose between **256 kbps** and **320 kbps** for *Songs (Albums &
    Playlists as well)*, and **480p**, **720p** and **1080p** for
@@ -73,9 +73,9 @@ Script
 ~~~~~~
 
 The rjdl as a package, provides enough class and methods to work with
-`RadioJavan <www.radiojavan.com>`__ for your development purposes. For
-a good understanding of what it does and how it works, you can take a look
-at following documentations:
+RadioJavan for your development purposes. For a good understanding of
+what it does and how it works, you can take a look at the following
+documentations:
 
 .. toctree::
    rjdl
@@ -93,7 +93,7 @@ Contributing
    an explanation of your changes.
 
 -  Also you can help us by `reporting bugs and sharing your
-   ideas <(https://github.com/reza00farjam/rjdl/issues/new)>`__.
+   ideas <https://github.com/reza00farjam/rjdl/issues/new>`__.
 
 Copyright & License
 -------------------
