@@ -1,3 +1,4 @@
+import ast
 import requests
 from bs4 import BeautifulSoup
 from rjdl.objMusic import Music
@@ -54,7 +55,7 @@ class Album:
             self.cover = data[-1]["src"]
 
             data = BeautifulSoup(content, "html.parser").findAll("script", href=False)
-            self.__tracks = eval(str(data[-3]).split("\n")[11][17:-1])
+            self.__tracks = ast.literal_eval(str(data[-3]).split("\n")[11][17:-1])
             self.length = len(self.__tracks)
 
             data = BeautifulSoup(content, "html.parser").findAll("div", href=False, attrs={"class": "dateAdded"})

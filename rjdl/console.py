@@ -62,6 +62,20 @@ def parse_args():
     return parser
 
 
+def download(parser, url: str, path: str):
+    try:
+        downloader(url, path)
+    except FileNotFoundError:
+        parser.error("path doesn't exist")
+    except BrokenPipeError:
+        print("\n")
+        parser.error("connection has been broken")
+    except ConnectionError:
+        parser.error("check your connection")
+    except FileExistsError:
+        parser.error("file already exists")
+
+
 def main():
     parser = parse_args()
     args = parser.parse_args()
@@ -71,23 +85,10 @@ def main():
 
     try:
         args.url = requests.get(args.url, allow_redirects=True).url
+    except requests.exceptions.SSLError:
+        parser.error("invalid url")
     except requests.exceptions.ConnectionError:
         parser.error("check your connection")
-    except:
-        parser.error("invalid url")
-
-    def download(url: str, path: str = ''):
-        try:
-            downloader(url, path)
-        except FileNotFoundError:
-            parser.error("path doesn't exist")
-        except BrokenPipeError:
-            print("\n")
-            parser.error("connection has been broken")
-        except ConnectionError:
-            parser.error("check your connection")
-        except FileExistsError:
-            parser.error("file already exists")
 
     try:
         if args.url.startswith("https://www.radiojavan.com/mp3s/mp3/"):
@@ -160,7 +161,7 @@ def main():
 
                 if args.download:
                     print("\nDownloading ...")
-                    download(track.download_link, args.path)
+                    download(parser, track.download_link, args.path)
             sys.exit()
         elif args.url.startswith("https://www.radiojavan.com/playlists/playlist/"):
             playlist = Playlist(args.url, args.music)
@@ -194,14 +195,14 @@ def main():
 
                 if args.download:
                     print("\nDownloading ...")
-                    download(track.download_link, args.path)
+                    download(parser, track.download_link, args.path)
             sys.exit()
         else:
             parser.error("invalid url")
 
         if args.download:
             print("\nDownloading ...")
-            download(download_link, args.path)
+            download(parser, download_link, args.path)
     except ConnectionError:
         parser.error("check your connection")
     except ValueError:
