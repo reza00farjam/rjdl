@@ -2,11 +2,13 @@ Welcome to rjdl documentation!
 ------------------------------
 
 -  This package can be used in two different ways:
--  If you want to use it as a downloader only, then you can simply use
-   its CLI.
--  But if you are a more advanced user and want to use this package in
-   your projects, then you can import it in your project and you're good
-   to go.
+
+   -  If you want to use it as a downloader only, then you can simply use
+      its CLI.
+   -  But if you are a more advanced user and want to use this package in
+      your projects, then you can import it in your project and you're good
+      to go.
+
 -  With this package you will be able to save any **Music**, **Video
    (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist**
    from `RadioJavan <https://www.radiojavan.com/>`__ to your personal computer.
@@ -25,6 +27,7 @@ Installation
    computer's path first)
 -  If you want to install the latest version directly from GitHub, then
    you can use this:
+
    ``pip install git+git://github.com/reza00farjam/rjdl``
 
 Usage
@@ -87,11 +90,11 @@ Contributing
 -  Contributions of all sizes are welcomed and precious. You can follow
    the steps below for this purpose:
 
--  `Fork <https://github.com/reza00farjam/rjdl/fork>`__ the repository.
--  Make all the changes you want to see in the original repository.
--  Push your changes to a new branch in your fork and `create a pull
-   request <https://github.com/reza00farjam/rjdl/compare>`__ along with
-   an explanation of your changes.
+   -  `Fork <https://github.com/reza00farjam/rjdl/fork>`__ the repository.
+   -  Make all the changes you want to see in the original repository.
+   -  Push your changes to a new branch in your fork and `create a pull
+      request <https://github.com/reza00farjam/rjdl/compare>`__ along with
+      an explanation of your changes.
 
 -  Also you can help us by `reporting bugs and sharing your
    ideas <https://github.com/reza00farjam/rjdl/issues/new>`__.
