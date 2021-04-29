@@ -1,22 +1,7 @@
-rjdl package
-
-============
-
-
-
-.. toctree::
-
-
-
-
 Classes
--------
-
+=======
 
 .. toctree::
-
-
-
     rjdl.album
     rjdl.music
     rjdl.playlist
@@ -24,7 +9,7 @@ Classes
     rjdl.video
 
 Methodes
---------
+========
 
 .. toctree::
     rjdl.downloader
