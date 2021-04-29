@@ -35,26 +35,26 @@ def parse_args():
                         help="track(s) of Album/Playlist to be downloaded, separated by white space (default: all tracks)"
                         )
     group.add_argument("-m",
-                       "--music",
+                       "--music-quality",
                        type=str,
                        default="320",
                        choices=["256", "320"],
                        help="download quality on Music, Album and Playlist URLs (default: 320)"
                        )
     group.add_argument("-v",
-                       "--video",
+                       "--video-quality",
                        type=str,
                        default="720p",
                        choices=["480p", "720p", "1080p"],
                        help="download quality on Video URLs (default: 720p)"
                        )
     parser.add_argument("-d",
-                        "--download",
+                        "--disable-download",
                         action="store_false",
-                        help="disable downloading (show info only)"
+                        help="disable auto downloading (show info only)"
                         )
     parser.add_argument("-r",
-                        "--rjdl",
+                        "--rjdl-version",
                         action="version",
                         help="show rjdl version and exit"
                         )
@@ -92,7 +92,7 @@ def main():
 
     try:
         if args.url.startswith("https://www.radiojavan.com/mp3s/mp3/"):
-            music = Music(args.url, args.music)
+            music = Music(args.url, args.music_quality)
             download_link = music.download_link
 
             print("Artist     ", music.artist)
@@ -104,7 +104,7 @@ def main():
             print("Size       ", music.size + " mb")
             print("DL Link    ", download_link)
         elif args.url.startswith("https://www.radiojavan.com/videos/video/"):
-            video = Video(args.url, args.video)
+            video = Video(args.url, args.video_quality)
             download_link = video.download_link
 
             print("Artist     ", video.artist)
@@ -130,7 +130,7 @@ def main():
             print("Size       ", podcast.size + " mb")
             print("DL Link    ", download_link)
         elif args.url.startswith("https://www.radiojavan.com/mp3s/album/"):
-            album = Album(args.url, args.music)
+            album = Album(args.url, args.music_quality)
 
             if "all" == args.tracks:
                 tracks = list(range(album.length))
@@ -159,12 +159,12 @@ def main():
                 print("Size     ", track.size + " mb")
                 print("DL Link  ", track.download_link)
 
-                if args.download:
+                if args.disable_download:
                     print("\nDownloading ...")
                     download(parser, track.download_link, args.path)
             sys.exit()
         elif args.url.startswith("https://www.radiojavan.com/playlists/playlist/"):
-            playlist = Playlist(args.url, args.music)
+            playlist = Playlist(args.url, args.music_quality)
 
             if "all" == args.tracks:
                 tracks = list(range(playlist.length))
@@ -193,14 +193,14 @@ def main():
                 print("Size     ", track.size + " mb")
                 print("DL Link  ", track.download_link)
 
-                if args.download:
+                if args.disable_download:
                     print("\nDownloading ...")
                     download(parser, track.download_link, args.path)
             sys.exit()
         else:
             parser.error("invalid url")
 
-        if args.download:
+        if args.disable_download:
             print("\nDownloading ...")
             download(parser, download_link, args.path)
     except ConnectionError:

@@ -40,8 +40,8 @@ or ``rjdl --help``:
 
 .. code-block:: text
 
-    usage: rjdl [-h] [-p PATH] [-t TRACKS] [-m {256,320} | -v {480p,720p,1080p}]
-                [-d] [-r]
+    usage: rjdl [-h] [-p PATH] [-t TRACKS [TRACKS ...]]
+                [-m {256,320} | -v {480p,720p,1080p}] [-d] [-r]
                 url
 
     Download Music, Video, Album, Podcast & Playlists from www.RadioJavan.com
@@ -52,16 +52,17 @@ or ``rjdl --help``:
     optional arguments:
       -h, --help            show this help message and exit
       -p PATH, --path PATH  download path (default: current working directory)
-      -t TRACKS, --tracks TRACKS
+      -t TRACKS [TRACKS ...], --tracks TRACKS [TRACKS ...]
                             track(s) of Album/Playlist to be downloaded, separated
                             by white space (default: all tracks)
-      -m {256,320}, --music {256,320}
+      -m {256,320}, --music-quality {256,320}
                             download quality on Music, Album and Playlist URLs
                             (default: 320)
-      -v {480p,720p,1080p}, --video {480p,720p,1080p}
+      -v {480p,720p,1080p}, --video-quality {480p,720p,1080p}
                             download quality on Video URLs (default: 720p)
-      -d, --download        disable downloading (show info only)
-      -r, --rjdl            show rjdl version and exit
+      -d, --disable-download
+                            disable auto downloading (show info only)
+      -r, --rjdl-version    show rjdl version and exit
 
 How it works
 ^^^^^^^^^^^^^
