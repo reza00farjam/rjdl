@@ -38,7 +38,7 @@ tool that provides you the following optional arguments to use based on
 the content of your url. You can also list them by running ``rjdl -h``
 or ``rjdl --help``:
 
-::
+.. code-block:: text
 
     usage: rjdl [-h] [-p PATH] [-t TRACKS] [-m {256,320} | -v {480p,720p,1080p}]
                 [-d] [-r]
