@@ -9,7 +9,7 @@
 
 ## Installation
 
-* Use `pip install rjdl` to install the package. (Of course to be able to use *pip*, you need python to be installed and added to computer's path first)  
+* Use `pip install rjdl` to install the latest release of the package. (Of course to be able to use *pip*, you need python to be installed and added to computer's path first)  
 * If you want to install the latest version directly from GitHub, then you can use this:  
 `pip install git+git://github.com/reza00farjam/rjdl`  
 
