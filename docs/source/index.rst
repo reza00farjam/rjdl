@@ -70,6 +70,7 @@ How it works
 
 Simply, just pass rjdl a valid url along with your desired options for
 it and enjoy your download!
+`Example <https://github.com/reza00farjam/rjdl/blob/61ffe179a944d196042071e7d2cefb26046c79e9/example.gif?raw=true>`__.
 
 Script
 ~~~~~~
