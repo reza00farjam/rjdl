@@ -65,8 +65,6 @@ def parse_args():
 def download(parser, url: str, path: str):
     try:
         downloader(url, path)
-    except FileNotFoundError:
-        parser.error("path doesn't exist")
     except BrokenPipeError:
         print("\n")
         parser.error("connection has been broken")

@@ -6,7 +6,7 @@ import requests
 
 def downloader(url: str, path: str = '', show_download_progress: bool = True) -> None:
 
-    """Downloads given direct download link at the given path.
+    """Downloads given direct download link at the given path. (It will use default path if the given path wasn't accessible)
 
     Args:
         url (:obj:`str`): Valid downloadable url.
@@ -16,15 +16,17 @@ def downloader(url: str, path: str = '', show_download_progress: bool = True) ->
     Raises:
         :class:`BrokenPipeError`
         :class:`ConnectionError`
-        :class:`FileNotFoundError`
         :class:`FileExistsError`
     """
 
     if path and not path.endswith('\\'):
         path += '\\'
 
-    if path and not os.path.isdir(path):
-        raise FileNotFoundError("Path doesn't exist")
+    if not os.path.exists(path):
+        if not os.access(os.path.dirname(path), os.W_OK):
+            path = ''
+        else:
+            os.mkdir(path)
 
     try:
         header = requests.head(url, allow_redirects=True)
