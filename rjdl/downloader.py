@@ -19,14 +19,17 @@ def downloader(url: str, path: str = '', show_download_progress: bool = True) ->
         :class:`FileExistsError`
     """
 
-    if path and not path.endswith('\\'):
-        path += '\\'
+    if path and path.endswith('\\'):
+        path = path[:-1]
 
     if not os.path.exists(path):
         if not os.access(os.path.dirname(path), os.W_OK):
             path = ''
         else:
             os.mkdir(path)
+
+    if path and not path.endswith('\\'):
+        path += '\\'
 
     try:
         header = requests.head(url, allow_redirects=True)
