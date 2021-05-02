@@ -1,6 +1,7 @@
 .idea/
 venv/
 dist/
+build/
 docs/build
 rjdl.egg-info/
 rjdl/__pycache__/
