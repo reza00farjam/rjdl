@@ -22,9 +22,9 @@ class Playlist:
         name (:obj:`str`): Playlist name.
         url (:obj:`str`): Playlist url.
         cover (:obj:`str`): Playlist cover url.
-        length (:obj:`str`): Playlist length.
         quality (:obj:`str`): Playlist quality.
         followers (:obj:`str`): Playlist followers on RadioJavan.
+        length (:obj:`int`): Playlist length.
 
     Raises:
         :class:`ValueError`

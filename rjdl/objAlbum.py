@@ -22,9 +22,9 @@ class Album:
         name (:obj:`str`): Album name.
         url (:obj:`str`): Album url.
         cover (:obj:`str`): Album cover url.
-        length (:obj:`str`): Album length.
         quality (:obj:`str`): Album quality.
         date_added (:obj:`str`): Date that album was added on RadioJavan.
+        length (:obj:`int`): Album length.
 
     Raises:
             :class:`ValueError`
