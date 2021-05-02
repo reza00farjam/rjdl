@@ -93,6 +93,14 @@ class Music:
             raise ValueError("Invalid url!") from None
         except requests.exceptions.ConnectionError:
             raise ConnectionError("Check your connection!") from None
+        except KeyError:
+            file_name = self.url.split('/')[-1]
+
+            response = requests.post("https://www.radiojavan.com/mp3s/mp3_host", params={"id": file_name})
+            self.download_link = f"{response.json()['host']}/media/mp3/{file_name}.mp3"
+
+            header = requests.head(self.download_link, allow_redirects=True)
+            self.size = str(round(int(header.headers["Content-Length"].strip()) / 1048675.44, 2))
 
     def __eq__(self, other):
         if not isinstance(other, Music):
