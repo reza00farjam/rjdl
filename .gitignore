@@ -4,3 +4,5 @@ dist/
 docs/build
 rjdl.egg-info/
 rjdl/__pycache__/
+
+*.toml

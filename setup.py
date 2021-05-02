@@ -1,5 +1,4 @@
 import os
-import rjdl
 from setuptools import setup
 
 
@@ -14,7 +13,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="rjdl",
-    version=rjdl.__version__,
+    version="1.0.0",
     packages=["rjdl"],
     install_requires=requirements,
     include_package_data=True,
