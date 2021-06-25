@@ -53,7 +53,7 @@ class Music:
             self.quality = quality
 
             data = BeautifulSoup(content, "html.parser").findAll("div", href=False, attrs={"class": "songInfo"})
-            self.artist, self.name = data[0].text.strip().split("\n")
+            self.artist, self.name = data[0].text.strip().split("\n")[:2]
 
             data = BeautifulSoup(content, "html.parser").findAll("img", href=False, attrs={"class": "cover"})
             self.cover = data[0]["src"]
