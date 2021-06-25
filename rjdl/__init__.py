@@ -14,7 +14,7 @@
 # https://github.com/reza00farjam/rjdl
 
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __license__ = "MIT License"
 __copyright__ = "Copyright (C) 2020-2021 Reza Farjam <https://github.com/reza00farjam>"
 

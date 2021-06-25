@@ -14,7 +14,7 @@ def parse_args():
                                      fromfile_prefix_chars='@',
                                      description="Download Music, Video, Album, Podcast & Playlists from www.RadioJavan.com"
                                      )
-    parser.version = "1.0.0"
+    parser.version = "1.0.1"
     group = parser.add_mutually_exclusive_group(required=False)
 
     parser.add_argument("url",

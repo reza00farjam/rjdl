@@ -2,12 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def search(string: str) -> dict:
+def search(query: str) -> dict:
 
     """Searches given string in RadioJavan database and return a dictionary of founded results.
 
     Args:
-        string (:obj:`str`): String to be searched.
+        query (:obj:`str`): String to be searched.
 
     Returns:
         :obj:`dict`
@@ -16,7 +16,7 @@ def search(string: str) -> dict:
         :class:`ConnectionError`
     """
 
-    content = requests.get("https://www.radiojavan.com/search", params={"q": string}).content
+    content = requests.get("https://www.radiojavan.com/search", params={"q": query}).content
 
     data = BeautifulSoup(content, "html.parser").findAll("div", href=False, attrs={"class": "itemContainer"})
     items = {item.a.attrs["href"]: {"artist": item.text.strip().split("\n")[0],
