@@ -18,11 +18,6 @@ __version__ = "1.0.1"
 __license__ = "MIT License"
 __copyright__ = "Copyright (C) 2020-2021 Reza Farjam <https://github.com/reza00farjam>"
 
-
-from .objMusic import Music
-from .objVideo import Video
-from .objAlbum import Album
-from .objPodcast import Podcast
-from .objPlaylist import Playlist
-from .search import search
-from .downloader import downloader
+from rjdl.models import Music, Video, Album, Playlist, Podcast
+from rjdl.search import search
+from rjdl.downloader import downloader

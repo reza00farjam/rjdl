@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from .objMusic import Music
+from .music import Music
 
 
 class Playlist:
