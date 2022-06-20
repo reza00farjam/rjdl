@@ -1,63 +1,62 @@
 import sys
 import argparse
 import requests
-from .objMusic import Music
-from .objVideo import Video
-from .objAlbum import Album
-from .objPodcast import Podcast
-from .objPlaylist import Playlist
+from .models import Music, Video, Album, Playlist, Podcast
 from .downloader import downloader
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(prog="rjdl",
-                                     fromfile_prefix_chars='@',
-                                     description="Download Music, Video, Album, Podcast & Playlists from www.RadioJavan.com"
-                                     )
+    parser = argparse.ArgumentParser(
+        prog="rjdl",
+        fromfile_prefix_chars="@",
+        description="Download Music, Video, Album, Podcast & \
+            Playlists from www.RadioJavan.com",
+    )
     parser.version = "1.0.1"
     group = parser.add_mutually_exclusive_group(required=False)
 
-    parser.add_argument("url",
-                        type=str,
-                        help="URL of desired media"
-                        )
-    parser.add_argument("-p",
-                        "--path",
-                        type=str,
-                        default='',
-                        help="download path (default: current working directory)"
-                        )
-    parser.add_argument("-t",
-                        "--tracks",
-                        type=str,
-                        nargs='+',
-                        default="all",
-                        help="track(s) of Album/Playlist to be downloaded, separated by white space (default: all tracks)"
-                        )
-    group.add_argument("-m",
-                       "--music-quality",
-                       type=str,
-                       default="320",
-                       choices=["256", "320"],
-                       help="download quality on Music, Album and Playlist URLs (default: 320)"
-                       )
-    group.add_argument("-v",
-                       "--video-quality",
-                       type=str,
-                       default="720p",
-                       choices=["480p", "720p", "1080p"],
-                       help="download quality on Video URLs (default: 720p)"
-                       )
-    parser.add_argument("-d",
-                        "--disable-download",
-                        action="store_false",
-                        help="disable auto downloading (show info only)"
-                        )
-    parser.add_argument("-r",
-                        "--rjdl-version",
-                        action="version",
-                        help="show rjdl version and exit"
-                        )
+    parser.add_argument("url", type=str, help="URL of desired media")
+    parser.add_argument(
+        "-p",
+        "--path",
+        type=str,
+        default="",
+        help="download path (default: current working directory)",
+    )
+    parser.add_argument(
+        "-t",
+        "--tracks",
+        type=str,
+        nargs="+",
+        default="all",
+        help="track(s) of Album/Playlist to be downloaded, "
+        "separated by white space (default: all tracks)",
+    )
+    group.add_argument(
+        "-m",
+        "--music-quality",
+        type=str,
+        default="320",
+        choices=["256", "320"],
+        help="download quality on Music, Album and Playlist URLs (default: 320)",
+    )
+    group.add_argument(
+        "-v",
+        "--video-quality",
+        type=str,
+        default="720p",
+        choices=["480p", "720p", "1080p"],
+        help="download quality on Video URLs (default: 720p)",
+    )
+    parser.add_argument(
+        "-d",
+        "--disable-download",
+        action="store_false",
+        help="disable auto downloading (show info only)",
+    )
+    parser.add_argument(
+        "-r", "--rjdl-version", action="version", help="show rjdl version and exit"
+    )
 
     return parser
 
@@ -140,11 +139,17 @@ def main():
                     elif 0 < int(num) <= album.length:
                         tracks.append(int(num) - 1)
                     else:
-                        parser.error(f"{num} is out of range, there is only {album.length} tracks")
+                        parser.error(
+                            f"{num} is out of range, there is only {album.length} \
+                                tracks"
+                        )
 
                 tracks = sorted(set(tracks))
 
-            print(f"{album.artist} | {album.name} | {album.date_added} | {album.quality} kbps")
+            print(
+                f"{album.artist} | {album.name} | {album.date_added} | {album.quality} "
+                "kbps"
+            )
 
             for index in tracks:
                 track = album.track(index)
@@ -174,7 +179,10 @@ def main():
                     elif 0 < int(num) <= playlist.length:
                         tracks.append(int(num) - 1)
                     else:
-                        parser.error(f"{num} is out of range, there is only {playlist.length} tracks")
+                        parser.error(
+                            f"{num} is out of range, there is only {playlist.length} \
+                                tracks"
+                        )
 
                 tracks = sorted(set(tracks))
 
@@ -183,7 +191,7 @@ def main():
             for index in tracks:
                 track = playlist.track(index)
 
-                print("\nTrack     {:02d}".format(index+1))
+                print("\nTrack     {:02d}".format(index + 1))
                 print("Artist   ", track.artist)
                 print("Name     ", track.name)
                 print("Likes    ", track.likes)
