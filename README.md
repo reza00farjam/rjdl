@@ -1,8 +1,10 @@
-﻿[![PyPI](https://img.shields.io/badge/pypi-v1.0.1-blue)](https://pypi.org/project/rjdl/) [![Python 3](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue)](https://pypi.org/project/rjdl/) [![Downloads](https://pepy.tech/badge/rjdl)](https://pepy.tech/project/rjdl) [![LICENSE](https://img.shields.io/badge/license-MIT-green)](https://github.com/reza00farjam/rjdl/blob/master/LICENSE) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ea5df880a3fa4136824c887af12f4f38)](https://www.codacy.com/gh/reza00farjam/rjdl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=reza00farjam/rjdl&amp;utm_campaign=Badge_Grade) [![Documentation Status](https://readthedocs.org/projects/rjdl/badge/?version=latest)](https://rjdl.readthedocs.io/en/latest/?badge=latest)
+﻿# rjdl
+
+[![PyPI](https://img.shields.io/badge/pypi-v1.0.1-blue)](https://pypi.org/project/rjdl/)[![Python 3](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue)](https://pypi.org/project/rjdl/) [![Downloads](https://pepy.tech/badge/rjdl)](https://pepy.tech/project/rjdl) [![LICENSE](https://img.shields.io/badge/license-MIT-green)](https://github.com/reza00farjam/rjdl/blob/master/LICENSE) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ea5df880a3fa4136824c887af12f4f38)](https://www.codacy.com/gh/reza00farjam/rjdl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=reza00farjam/rjdl&amp;utm_campaign=Badge_Grade) [![Documentation Status](https://readthedocs.org/projects/rjdl/badge/?version=latest)](https://rjdl.readthedocs.io/en/latest/?badge=latest)
 
 * This package can be used in two different ways:  
-    * If you want to use it as a downloader only, then you can simply use its CLI.  
-    * But if you are a more advanced user and want to use this package in your projects, then you can import it in your project and you're good to go.
+  * If you want to use it as a downloader only, then you can simply use its CLI.  
+  * But if you are a more advanced user and want to use this package in your projects, then you can import it in your project and you're good to go.
 * With this package you will be able to save any **Music**, **Video (Music Video & RJ-TV Show)**, **Album**, **Podcast** and **Playlist** from [RadioJavan](https://www.radiojavan.com/) to your personal computer.  
 * *Podcasts* will be saved in **192 kbps** quality only, while you can choose between **256 kbps** and **320 kbps** for *Songs (Albums & Playlists as well)*, and **480p**, **720p** and **1080p** for *Videos* if available.  
 * If you are currently living in *Iran*, you need to turn on your **VPN** while using this package.
@@ -56,12 +58,34 @@ The rjdl as a package, provides enough class and methods to work with RadioJavan
 development purposes. For a good understanding of what it does and how it works, you can take a look at
 [rjdl documentation](https://rjdl.readthedocs.io/en/latest/).
 
+## Development Setup
+
+To start developing rjdl, you need to install a recent version of python and pip and then run the following command (for linux):
+
+```bash
+git clone https://github.com/reza00farjam/rjdl
+cd rjdl
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .[dev]
+```
+
+### Code Style
+
+Keeping to a consistent code style throughout the project makes it easier to contribute and collaborate.
+
+We enforce the following check for all PRs:
+
+```bash
+tox -e flake8
+```
+
 ## Contributing
 
 * Contributions of all sizes are welcomed and precious. You can follow the steps below for this purpose:
-    * [Fork](https://github.com/reza00farjam/rjdl/fork) the repository.  
-    * Make all the changes you want to see in the original repository.  
-    * Push your changes to a new branch in your fork and [create a pull request](https://github.com/reza00farjam/rjdl/compare) along with an explanation of your changes.  
+  * [Fork](https://github.com/reza00farjam/rjdl/fork) the repository.  
+  * Make all the changes you want to see in the original repository.  
+  * Push your changes to a new branch in your fork and [create a pull request](https://github.com/reza00farjam/rjdl/compare) along with an explanation of your changes.
 * Also you can help us by [reporting bugs and sharing your ideas](https://github.com/reza00farjam/rjdl/issues/new).  
 
 ## Copyright & License

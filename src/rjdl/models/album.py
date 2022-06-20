@@ -6,10 +6,10 @@ from .music import Music
 
 class Album:
 
-    """This object represents a RadioJvan album.
+    """This object represents a RadioJavan album.
 
-    Objects of this class are comparable in terms of equality. Two objects of this class are
-    considered equal, if their :attr:`url` is equal.
+    Objects of this class are comparable in terms of equality. Two objects of
+    this class are considered equal, if their :attr:`url` is equal.
 
     .. versionadded:: 1.0.0
 
@@ -40,15 +40,17 @@ class Album:
             if not url.startswith("https://www.radiojavan.com/mp3s/album/"):
                 raise ValueError("Invalid url!")
 
-            if '?' in url:
-                url = url.split('?')[0]
+            if "?" in url:
+                url = url.split("?")[0]
             self.url = url
 
             if quality not in ["256", "320"]:
                 raise ValueError("This quality isn't available!")
             self.quality = quality
 
-            data = BeautifulSoup(content, "html.parser").findAll("meta", href=False, attrs={"property": "og:title"})
+            data = BeautifulSoup(content, "html.parser").findAll(
+                "meta", href=False, attrs={"property": "og:title"}
+            )
             self.artist, self.name = data[0].attrs["content"].split(" - ")
 
             data = BeautifulSoup(content, "html.parser").findAll("img", href=False)
@@ -58,8 +60,10 @@ class Album:
             self.__tracks = ast.literal_eval(str(data[-3]).split("\n")[11][17:-1])
             self.length = len(self.__tracks)
 
-            data = BeautifulSoup(content, "html.parser").findAll("div", href=False, attrs={"class": "dateAdded"})
-            self.date_added = data[0].text.split(':')[1].strip()
+            data = BeautifulSoup(content, "html.parser").findAll(
+                "div", href=False, attrs={"class": "dateAdded"}
+            )
+            self.date_added = data[0].text.split(":")[1].strip()
         except requests.exceptions.SSLError:
             raise ValueError("Invalid url!") from None
         except requests.exceptions.ConnectionError:
@@ -84,4 +88,7 @@ class Album:
             :class:`ConnectionError`
         """
 
-        return Music("https://www.radiojavan.com/mp3s/mp3/" + self.__tracks[index]["mp3"], self.quality)
+        return Music(
+            "https://www.radiojavan.com/mp3s/mp3/" + self.__tracks[index]["mp3"],
+            self.quality,
+        )

@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 
 
 def search(query: str) -> dict:
-
-    """Searches given string in RadioJavan database and return a dictionary of founded results.
+    """Searches given string in RadioJavan database and return
+    a dictionary of founded results.
 
     Args:
         query (:obj:`str`): String to be searched.
@@ -16,14 +16,29 @@ def search(query: str) -> dict:
         :class:`ConnectionError`
     """
 
-    content = requests.get("https://www.radiojavan.com/search", params={"q": query}).content
+    content = requests.get(
+        "https://www.radiojavan.com/search", params={"q": query}
+    ).content
 
-    data = BeautifulSoup(content, "html.parser").findAll("div", href=False, attrs={"class": "itemContainer"})
-    items = {item.a.attrs["href"]: {"artist": item.text.strip().split("\n")[0],
-                                    "name": item.text.strip().split("\n")[1]}
-             for item in data}
+    data = BeautifulSoup(content, "html.parser").findAll(
+        "div", href=False, attrs={"class": "itemContainer"}
+    )
+    items = {
+        item.a.attrs["href"]: {
+            "artist": item.text.strip().split("\n")[0],
+            "name": item.text.strip().split("\n")[1],
+        }
+        for item in data
+    }
 
-    return {"music": dict(filter(lambda x: x[0].startswith("/mp3s/mp3/"), items.items())),
-            "video": dict(filter(lambda x: x[0].startswith("/videos/video/"), items.items())),
-            "album": dict(filter(lambda x: x[0].startswith("/mp3s/album/"), items.items())),
-            "podcast": dict(filter(lambda x: x[0].startswith("/podcasts/podcast/"), items.items()))}
+    return {
+        "music": dict(filter(lambda x: x[0].startswith("/mp3s/mp3/"), items.items())),
+        "video": dict(
+            filter(lambda x: x[0].startswith("/videos/video/"), items.items())
+        ),
+        "album": dict(filter(lambda x: x[0].startswith("/mp3s/album/"), items.items())),
+        "podcast": dict(
+            filter(lambda x: x[0].startswith(
+                "/podcasts/podcast/"), items.items())
+        ),
+    }

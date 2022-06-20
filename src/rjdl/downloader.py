@@ -4,9 +4,10 @@ import time
 import requests
 
 
-def downloader(url: str, path: str = '', show_download_progress: bool = True) -> None:
+def downloader(url: str, path: str = "", show_download_progress: bool = True) -> None:
 
-    """Downloads given direct download link at the given path. (It will use default path if the given path wasn't accessible)
+    """Downloads given direct download link at the given path.
+    (It will use default path if the given path wasn't accessible)
 
     Args:
         url (:obj:`str`): Valid downloadable url.
@@ -19,21 +20,21 @@ def downloader(url: str, path: str = '', show_download_progress: bool = True) ->
         :class:`FileExistsError`
     """
 
-    if path and path.endswith('\\'):
+    if path and path.endswith("\\"):
         path = path[:-1]
 
     if not os.path.exists(path):
         if not os.access(os.path.dirname(path), os.W_OK):
-            path = ''
+            path = ""
         else:
             os.mkdir(path)
 
-    if path and not path.endswith('\\'):
-        path += '\\'
+    if path and not path.endswith("\\"):
+        path += "\\"
 
     try:
         header = requests.head(url, allow_redirects=True)
-        file_name = header.url.split('/')[-1]
+        file_name = header.url.split("/")[-1]
     except requests.exceptions.ConnectionError:
         raise ConnectionError("Check your connection") from None
 
@@ -63,18 +64,17 @@ def downloader(url: str, path: str = '', show_download_progress: bool = True) ->
                         done = int(50 * dl / total_length)
 
                         sys.stdout.write(
-                            "\r|{}{}| {:3}% | {:7.2f} kbps ".format(u"\U00002588" * done,
-                                                                    '-' * (50 - done),
-                                                                    2 * done,
-                                                                    round((dl / (time.perf_counter() - start)) / 1000,
-                                                                          2
-                                                                          )
-                                                                    )
+                            "\r|{}{}| {:3}% | {:7.2f} kbps ".format(
+                                "\U00002588" * done,
+                                "-" * (50 - done),
+                                2 * done,
+                                round((dl / (time.perf_counter() - start)) / 1000, 2),
+                            )
                         )
                         sys.stdout.flush()
                 if show_download_progress:
-                    print('')
-            except:
+                    print("")
+            except Exception:
                 file.close()
                 os.remove(path + file_name)
 

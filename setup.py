@@ -2,7 +2,7 @@ import os
 from setuptools import setup, find_packages
 
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as file:
+with open(os.path.join(os.path.dirname(__file__), "README.md")) as file:
     long_description = file.read()
 
 
@@ -14,7 +14,8 @@ setup(
     version="1.0.1",
     include_package_data=True,
     license="MIT License",
-    description="Download Music, Video, Album, Podcast & Playlists from www.RadioJavan.com",
+    description="Download Music, Video, Album, Podcast & Playlists from \
+        www.RadioJavan.com",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/reza00farjam/rjdl",
@@ -34,8 +35,8 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
-    install_requires=[
-        "requests>=2.22.0",
-        "beautifulsoup4>=4.9.1"
-    ]
+    install_requires=["requests>=2.22.0", "beautifulsoup4>=4.9.1"],
+    extras_require={
+        "dev": ["pylint", "tox", "mypy", "flake8", "black"],
+    },
 )
