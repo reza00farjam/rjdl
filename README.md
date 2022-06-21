@@ -60,7 +60,7 @@ development purposes. For a good understanding of what it does and how it works,
 
 ## Development Setup
 
-To start developing rjdl, you need to install a recent version of python and pip and then run the following command (for linux):
+To start developing rjdl, you need to install a recent version of python and pip and then run the following commands (for linux):
 
 ```bash
 git clone https://github.com/reza00farjam/rjdl
