@@ -38,5 +38,6 @@ setup(
     install_requires=["requests>=2.22.0", "beautifulsoup4>=4.9.1"],
     extras_require={
         "dev": ["pylint", "tox", "mypy", "flake8", "black"],
+        "test": ["pytest"]
     },
 )
