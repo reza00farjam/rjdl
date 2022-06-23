@@ -28,13 +28,6 @@ def download(url: str, path: str):
               default="",
               help="Download path",
               show_default="current working directory")
-@click.option("-t",
-              "--tracks",
-              type=click.INT,
-              nargs=-1,
-              help="Track(s) of Album/Playlist to be downloaded, \
-                  separated by white space",
-              show_default="all tracks")
 @click.option("-m",
               "--music-quality",
               type=click.Choice(["256", "320"]),
@@ -52,10 +45,10 @@ def download(url: str, path: str):
               "--disable-download",
               is_flag=True,
               help="Disable auto downloading (show info only)")
-def cli(url: str, path: str, tracks: tuple[int], music_quality, video_quality, disable_download):
+def cli(url: str, path: str, music_quality, video_quality, disable_download):
     """Download Music, Video, Album, Podcast & Playlists
     from Radio Javan
-    
+
     URL: Link of desired media
     """
 
@@ -100,23 +93,7 @@ def cli(url: str, path: str, tracks: tuple[int], music_quality, video_quality, d
             print("DL Link    ", download_link)
         elif url.startswith("https://www.radiojavan.com/mp3s/album/"):
             album = Album(url, music_quality)
-
-            if "all" == tracks:
-                tracks = list(range(album.length))
-            else:
-                tracks = []
-                for num in tracks:
-                    if not num.isdigit():
-                        click.ClickException("invalid track number(s)").show()
-                    elif 0 < int(num) <= album.length:
-                        tracks.append(int(num) - 1)
-                    else:
-                        click.ClickException(
-                            f"{num} is out of range, there is only {album.length} \
-                                tracks"
-                        ).show()
-
-                tracks = sorted(set(tracks))
+            tracks = list(range(album.length))
 
             print(
                 f"{album.artist} | {album.name} | {album.date_added} | {album.quality} "
@@ -140,23 +117,7 @@ def cli(url: str, path: str, tracks: tuple[int], music_quality, video_quality, d
             sys.exit()
         elif url.startswith("https://www.radiojavan.com/playlists/playlist/"):
             playlist = Playlist(url, music_quality)
-
-            if "all" == tracks:
-                tracks = list(range(playlist.length))
-            else:
-                tracks = []
-                for num in tracks:
-                    if not num.isdigit():
-                        click.ClickException("invalid track number(s)").show()
-                    elif 0 < int(num) <= playlist.length:
-                        tracks.append(int(num) - 1)
-                    else:
-                        click.ClickException(
-                            f"{num} is out of range, there is only {playlist.length} \
-                                tracks"
-                        ).show()
-
-                tracks = sorted(set(tracks))
+            tracks = list(range(playlist.length))
 
             print(f"{playlist.creator} | {playlist.name} | {playlist.quality} kbps")
 
@@ -176,7 +137,7 @@ def cli(url: str, path: str, tracks: tuple[int], music_quality, video_quality, d
                     download(track.download_link, path)
             sys.exit()
         else:
-            click.ClickException("invalid url").show()
+            raise click.ClickException("invalid url")
 
         if disable_download:
             print("\nDownloading ...")
