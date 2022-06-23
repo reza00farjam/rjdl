@@ -25,7 +25,7 @@ setup(
     package_dir={"": "src"},
     entry_points={
         "console_scripts": [
-            "rjdl = rjdl.console:main",
+            "rjdl = rjdl.console.master:cli",
         ]
     },
     classifiers=[
@@ -35,7 +35,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
-    install_requires=["requests>=2.22.0", "beautifulsoup4>=4.9.1"],
+    install_requires=["click>=8.1.3", "requests>=2.22.0", "beautifulsoup4>=4.9.1"],
     extras_require={
         "dev": ["pylint", "tox", "mypy", "flake8", "black"],
         "test": ["pytest"]
