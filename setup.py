@@ -25,7 +25,7 @@ setup(
     package_dir={"": "src"},
     entry_points={
         "console_scripts": [
-            "rjdl = rjdl.console.master:cli",
+            "rjdl = rjdl.console:cli",
         ]
     },
     classifiers=[
@@ -34,7 +34,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6",
+    python_requires=">=3.10",
     install_requires=["click>=8.1.3", "requests>=2.22.0", "beautifulsoup4>=4.9.1"],
     extras_require={
         "dev": ["pylint", "tox", "mypy", "flake8", "black"],
