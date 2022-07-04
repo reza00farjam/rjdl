@@ -219,8 +219,6 @@ class DownloadManager:
         if os.path.isfile(file_path):
             raise FileExistsError(f"File {file_path} already exists.")
 
-        print(url)
-
         with open(file_path, "wb") as file:
             try:
                 response = self.s.get(url, allow_redirects=True, stream=True)

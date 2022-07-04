@@ -14,4 +14,3 @@ pip install -e .[test]
 ```bash
 pytest
 ```
-
