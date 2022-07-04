@@ -34,7 +34,7 @@ class Playlist(URLBase):
     length: int
     tracks: list[str]
 
-    def playlist(soup: bs, url: str) -> Playlist:
+    def parse(soup: bs, url: str) -> Playlist:
         """Parse playlist from BeautifulSoup object.
 
         Args:

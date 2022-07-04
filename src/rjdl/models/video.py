@@ -37,7 +37,7 @@ class Video(URLBase):
     tags: dict[str]
     director: dict[str] | None
 
-    def parse_video(soup: bs, url: str) -> Video:
+    def parse(soup: bs, url: str) -> Video:
         """Parse video from BeautifulSoup object.
 
         Args:
@@ -49,7 +49,7 @@ class Video(URLBase):
         """
 
         data = soup.find("div", href=False, attrs={"class": "songInfo"})
-        artist, name = data.text.strip().split("\n")
+        artist, name = data.text.strip().split("\n")[:2]
 
         data = soup.find("meta", href=False, attrs={"itemprop": "thumbnailUrl"})
         thumb = data.attrs["content"]
@@ -63,7 +63,7 @@ class Video(URLBase):
         data = soup.find("div", href=False, attrs={"class": "date_added"})
         date_added = data.text.split(":")[1].strip()
 
-        data = soup.find("span", href=False, attrs={"class": "tags"})
+        data = soup.findAll("span", href=False, attrs={"class": "tags"})
         tags = {tag.a.text: tag.a["href"] for tag in data}
 
         data = soup.find("div", href=False, attrs={"id": "directed_by"})

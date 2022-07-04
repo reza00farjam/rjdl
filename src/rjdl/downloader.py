@@ -119,7 +119,7 @@ class DownloadManager:
         url = parse.urlparse(url.scheme + "://" + url.netloc + url.path)
 
         try:
-            path = url.path.split("/")[1:-1]
+            path = url.path.split("/")[1:3]
             path = "/".join(path)
             type_ = URLType(path)
         except IndexError:
@@ -187,15 +187,15 @@ class DownloadManager:
                 )
                 download_link = f"{dl_host}/media/podcast/mp3-192/{name}.mp3"
             case URLType.VIDEO:
+                match self.video_quality:
+                    case VideoQuality.q480:
+                        q = "lq"
+                    case VideoQuality.q720:
+                        q = "hq"
+                    case VideoQuality.q1080:
+                        q = "hd"
                 dl_host = get_dl_host("https://www.radiojavan.com/videos/video_host")
-                quality = (
-                    "lq"
-                    if self.video_quality == "480p"
-                    else "hq"
-                    if self.video_quality == "720p"
-                    else "hd"
-                )
-                download_link = f"{dl_host}/media/music_video/{quality}/{name}.mp4"
+                download_link = f"{dl_host}/media/music_video/{q}/{name}.mp4"
             case _:
                 raise ValueError(
                     f"For getting the download link, the url {url} is not a valid url."
@@ -215,23 +215,22 @@ class DownloadManager:
             :class:`FileExistsError`
         """
         file_name = url.split("/")[-1]
-        file_path = self.path + file_name
+        file_path = os.path.abspath(self.path) + "/" + file_name
         if os.path.isfile(file_path):
             raise FileExistsError(f"File {file_path} already exists.")
+
+        print(url)
 
         with open(file_path, "wb") as file:
             try:
                 response = self.s.get(url, allow_redirects=True, stream=True)
                 total_length = response.headers["Content-Length"]
-            except requests.exceptions.ConnectionError:
-                raise ConnectionError("Check your connection") from None
 
-            if total_length is None:
-                file.write(response.content)
-            else:
-                total_length = int(total_length.strip())
-                any(c.on_downloading(url, total_length) for c in self._callbacks)
-                try:
+                if total_length is None:
+                    file.write(response.content)
+                else:
+                    total_length = int(total_length.strip())
+                    any(c.on_downloading(url, total_length) for c in self._callbacks)
                     dl = 0
                     start = time.perf_counter()
 
@@ -245,9 +244,7 @@ class DownloadManager:
                         any(c.on_progress(done, speed) for c in self._callbacks)
 
                     any(c.on_downloaded(self.path + file_name) for c in self._callbacks)
-                except Exception as e:
-                    file.close()
-                    os.remove(self.path + file_name)
-
-                    print(e)
-                    raise BrokenPipeError("Connection has been broken") from None
+            except Exception as e:
+                file.close()
+                os.remove(self.path + file_name)
+                raise e from None

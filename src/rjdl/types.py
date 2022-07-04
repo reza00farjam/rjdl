@@ -11,9 +11,9 @@ class MusicQuality(str, Enum):
 class VideoQuality(str, Enum):
     """This enum represents video qualities."""
 
-    q480 = "480p"
-    q720 = "720p"
-    q1080 = "1080p"
+    q480 = "480"
+    q720 = "720"
+    q1080 = "1080"
 
 
 class URLType(str, Enum):
@@ -21,6 +21,6 @@ class URLType(str, Enum):
 
     MUSIC = "mp3s/mp3"
     VIDEO = "videos/video"
-    ALBUM = "mp3s/albums"
+    ALBUM = "mp3s/album"
     PODCAST = "podcasts/podcast"
     PLAYLIST = "playlists/playlist"
