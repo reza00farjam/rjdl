@@ -38,7 +38,6 @@ def search(query: str) -> dict:
         ),
         "album": dict(filter(lambda x: x[0].startswith("/mp3s/album/"), items.items())),
         "podcast": dict(
-            filter(lambda x: x[0].startswith(
-                "/podcasts/podcast/"), items.items())
+            filter(lambda x: x[0].startswith("/podcasts/podcast/"), items.items())
         ),
     }
